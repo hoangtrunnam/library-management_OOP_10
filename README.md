@@ -5,7 +5,7 @@
 - bước 1: clone về máy.
 - bước 2: mở project lên.(lúc này không được sửa gì)
 - bước 3: mở gitbash lên
-- bước 4: checkout sang nhánh develop bằng câu lệnh: "git checkout develop"
+- bước 4: checkout sang nhánh develop bằng câu lệnh: "git checkout develop". nếu đã đứng ở develop rồi thì không cần chạy lệnh này
 - bước 5: từ develop tạo nhánh mới của riêng mình (nhánh này sẽ sử dụng xuyên suốt toàn chương trình)
 - câu lệnh: "git checkout -b "tên_nhánh_của_mình" "
 - bước 6: code chức năng được yêu cầu
