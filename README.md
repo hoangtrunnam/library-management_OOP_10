@@ -1,16 +1,16 @@
 # library-management_OOP_10
 đồ án OOP quản lý thư viện sử dụng winform 
 
-cách chạy project:
-bước 1: clone về máy.
-bước 2: mở project lên.(lúc này không được sửa gì)
-bước 3: mở gitbash lên
-bước 4: checkout sang nhánh develop bằng câu lệnh: "git checkout develop"
-bước 5: từ develop tạo nhánh mới của riêng mình (nhánh này sẽ sử dụng xuyên suốt toàn chương trình)
-câu lệnh: "git checkout -b "tên_nhánh_của_mình" "
-bước 6: code chức năng được yêu cầu
-bước 7: commit code mình làm được và push lên nhánh của mình
-bước 8: tạo pull request và assign cho Nam Hoàng
++ cách chạy project:
+- bước 1: clone về máy.
+- bước 2: mở project lên.(lúc này không được sửa gì)
+- bước 3: mở gitbash lên
+- bước 4: checkout sang nhánh develop bằng câu lệnh: "git checkout develop"
+- bước 5: từ develop tạo nhánh mới của riêng mình (nhánh này sẽ sử dụng xuyên suốt toàn chương trình)
+- câu lệnh: "git checkout -b "tên_nhánh_của_mình" "
+- bước 6: code chức năng được yêu cầu
+- bước 7: commit code mình làm được và push lên nhánh của mình
+- bước 8: tạo pull request và assign cho Nam Hoàng
 -> 8 bước này là khi chạy pj và tạo nhánh lần đầu, các lần sau sẽ không giống như 8 bước trên.
 
 lưu ý: khi commit code:
