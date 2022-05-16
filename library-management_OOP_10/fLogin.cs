@@ -25,7 +25,7 @@ namespace library_management_OOP_10
 
         private void txtTenDangNhap_MouseEnter(object sender, EventArgs e)
         {
-            if(txtTenDangNhap.Text =="tên đăng nhập")
+            if(txtTenDangNhap.Text =="Tên đăng nhập")
             {
                 txtTenDangNhap.Clear();
             }
@@ -39,7 +39,7 @@ namespace library_management_OOP_10
 
         private void txtMatKhau_MouseEnter(object sender, EventArgs e)
         {
-            if( txtMatKhau.Text =="mật khẩu")
+            if( txtMatKhau.Text =="Mật khẩu")
             {
                 txtMatKhau.Clear();
                 txtMatKhau.PasswordChar = '*';
@@ -76,6 +76,11 @@ namespace library_management_OOP_10
             {
                 MessageBox.Show("sai tên đăng nhập hoặc mật khẩu", "Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
+        }
+
+        private void fLogin_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
