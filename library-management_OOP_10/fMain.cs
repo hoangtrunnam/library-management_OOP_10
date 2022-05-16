@@ -41,5 +41,11 @@ namespace library_management_OOP_10
             fXemDsSach f = new fXemDsSach();
             f.Show();
         }
+
+        private void thêmMớiĐộcGiảToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            fThemMoiDocGia tmdg = new fThemMoiDocGia();
+            tmdg.Show();
+        }
     }
 }

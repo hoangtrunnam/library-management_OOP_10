@@ -64,6 +64,7 @@ namespace library_management_OOP_10
             cmd.CommandText = "select * from authen where authen.tenDangNhap = '" + txtTenDangNhap.Text + "' and authen.matKhau = '" + txtMatKhau.Text + "' "; // câu lệnh truy vấn
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataSet ds = new DataSet();
+            int a = 5;
             da.Fill(ds);
 
             if(ds.Tables[0].Rows.Count > 0)

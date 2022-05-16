@@ -64,11 +64,22 @@
     <Compile Include="fMain.Designer.cs">
       <DependentUpon>fMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="fThemMoiDocGia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fThemMoiDocGia.Designer.cs">
+      <DependentUpon>fThemMoiDocGia.cs</DependentUpon>
+    </Compile>
     <Compile Include="fXemDsSach.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="fXemDsSach.Designer.cs">
       <DependentUpon>fXemDsSach.cs</DependentUpon>
+    </Compile>
+    <Compile Include="lib_ManagementDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>lib_ManagementDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -81,6 +92,9 @@
     <EmbeddedResource Include="fMain.resx">
       <DependentUpon>fMain.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="fThemMoiDocGia.resx">
+      <DependentUpon>fThemMoiDocGia.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="fXemDsSach.resx">
       <DependentUpon>fXemDsSach.cs</DependentUpon>
     </EmbeddedResource>
@@ -88,6 +102,17 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <None Include="lib_ManagementDataSet.xsc">
+      <DependentUpon>lib_ManagementDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="lib_ManagementDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>lib_ManagementDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="lib_ManagementDataSet.xss">
+      <DependentUpon>lib_ManagementDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
