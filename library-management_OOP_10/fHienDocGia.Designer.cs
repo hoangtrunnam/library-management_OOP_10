@@ -192,7 +192,7 @@ namespace library_management_OOP_10
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(448, 30);
+            this.label7.Location = new System.Drawing.Point(451, 29);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(39, 16);
             this.label7.TabIndex = 3;
