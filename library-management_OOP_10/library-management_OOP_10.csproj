@@ -52,6 +52,12 @@
     <Compile Include="fAddNewBook.Designer.cs">
       <DependentUpon>fAddNewBook.cs</DependentUpon>
     </Compile>
+    <Compile Include="fHienDocGia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fHienDocGia.Designer.cs">
+      <DependentUpon>fHienDocGia.cs</DependentUpon>
+    </Compile>
     <Compile Include="fLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -63,6 +69,12 @@
     </Compile>
     <Compile Include="fMain.Designer.cs">
       <DependentUpon>fMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fMuonSach.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fMuonSach.Designer.cs">
+      <DependentUpon>fMuonSach.cs</DependentUpon>
     </Compile>
     <Compile Include="fThemMoiDocGia.cs">
       <SubType>Form</SubType>
@@ -86,11 +98,17 @@
     <EmbeddedResource Include="fAddNewBook.resx">
       <DependentUpon>fAddNewBook.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="fHienDocGia.resx">
+      <DependentUpon>fHienDocGia.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="fLogin.resx">
       <DependentUpon>fLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="fMain.resx">
       <DependentUpon>fMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fMuonSach.resx">
+      <DependentUpon>fMuonSach.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="fThemMoiDocGia.resx">
       <DependentUpon>fThemMoiDocGia.cs</DependentUpon>

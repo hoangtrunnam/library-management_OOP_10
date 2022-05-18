@@ -125,6 +125,7 @@
             this.xemDanhSáchToolStripMenuItem.Name = "xemDanhSáchToolStripMenuItem";
             this.xemDanhSáchToolStripMenuItem.Size = new System.Drawing.Size(214, 56);
             this.xemDanhSáchToolStripMenuItem.Text = "Xem danh sách ";
+            this.xemDanhSáchToolStripMenuItem.Click += new System.EventHandler(this.xemDanhSáchToolStripMenuItem_Click);
             // 
             // mượnSáchToolStripMenuItem
             // 
@@ -133,6 +134,7 @@
             this.mượnSáchToolStripMenuItem.Name = "mượnSáchToolStripMenuItem";
             this.mượnSáchToolStripMenuItem.Size = new System.Drawing.Size(128, 54);
             this.mượnSáchToolStripMenuItem.Text = "Mượn sách";
+            this.mượnSáchToolStripMenuItem.Click += new System.EventHandler(this.mượnSáchToolStripMenuItem_Click);
             // 
             // trảSáchToolStripMenuItem
             // 
@@ -171,7 +173,7 @@
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "fMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Main";

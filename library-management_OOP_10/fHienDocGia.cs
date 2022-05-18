@@ -21,5 +21,23 @@ namespace library_management_OOP_10
         {
 
         }
+        
+        private void txtTimMSSV_TextChanged(object sender, EventArgs e)
+        {
+            if(txtTimMSSV.Text != "")
+            {
+                label1.Visible = false;
+                //Thay Duong dan cua minh
+                Image image = Image.FromFile("C:/Users/PC/Desktop/DoAnOOP/library-management_OOP_10/assets/search1.gif");
+                pictureSearch.Image = image;
+            }
+            else
+            {
+                label1.Visible = true;
+                //Thay Duong dan cua minh
+                Image image = Image.FromFile("C:/Users/PC/Desktop/DoAnOOP/library-management_OOP_10/assets/search.gif");
+                pictureSearch.Image = image;
+            }
+        }
     }
 }
