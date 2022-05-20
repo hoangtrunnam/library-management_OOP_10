@@ -25,8 +25,6 @@ namespace library_management_OOP_10
                 fLogin f = new fLogin();
                 this.Hide();
                 f.ShowDialog();
-                // this.Show();
-                // Application.Exit();
             }
         }
 
@@ -42,28 +40,33 @@ namespace library_management_OOP_10
             f.Show();
         }
 
-        private void thêmMớiĐộcGiảToolStripMenuItem_Click(object sender, EventArgs e)
+        private void btnThemMoiDocGia_Click(object sender, EventArgs e)
         {
             fThemMoiDocGia tmdg = new fThemMoiDocGia();
             tmdg.Show();
         }
 
-        private void xemDanhSáchToolStripMenuItem_Click(object sender, EventArgs e)
+        private void btnXemDanhSachDocGia_Click(object sender, EventArgs e)
         {
             fHienDocGia hdg = new fHienDocGia();
             hdg.Show();
         }
 
-        private void mượnSáchToolStripMenuItem_Click(object sender, EventArgs e)
+        private void btnMuonSach_Click(object sender, EventArgs e)
         {
             fMuonSach ms = new fMuonSach();
             ms.Show();
         }
 
-        private void trảSáchToolStripMenuItem_Click(object sender, EventArgs e)
+        private void btnTraSach_Click(object sender, EventArgs e)
         {
             fTraSach ts = new fTraSach();
             ts.Show();
+        }
+
+        private void btnChiTietMuonTra_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
