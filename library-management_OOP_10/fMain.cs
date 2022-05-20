@@ -47,5 +47,17 @@ namespace library_management_OOP_10
             fThemMoiDocGia tmdg = new fThemMoiDocGia();
             tmdg.Show();
         }
+
+        private void xemDanhSáchToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            fHienDocGia hdg = new fHienDocGia();
+            hdg.Show();
+        }
+
+        private void mượnSáchToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            fMuonSach ms = new fMuonSach();
+            ms.Show();
+        }
     }
 }
