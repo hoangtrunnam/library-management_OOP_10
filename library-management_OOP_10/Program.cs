@@ -14,7 +14,7 @@ namespace library_management_OOP_10
         // tên database bắt buộc phải là lib_Management
         // các phương thức chỉ được phép get, cấm sử dụng set
 
-        private static string _globalDomain = "PC-PC\\SQLEXPRESS";
+        private static string _globalDomain = "DESKTOP-62VA20P\\HOANGNAM";
         private static string _globalDataBase = "lib_Management";
 
         public static string GlobalDomain

@@ -205,7 +205,7 @@
         ZjFugXf8AAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="thêmMớiĐộcGiảToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnThemMoiDocGia.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABGdBTUEAALGPC/xhBQAACSxJREFUaEPt
         mXtQU9kdx3E77baddvrY7XTXzrR2pqPTrtt225l11dn62nGsru50XUZlx1ZW0QUfqIAEBUVAiCIJj4Ag
@@ -250,7 +250,7 @@
         /zDrfaxxMAa8AAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="xemDanhSáchToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnXemDanhSachDocGia.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABGdBTUEAALGPC/xhBQAAB8ZJREFUaEPt
         mdlTW+cZxt31D0hvaue+Ta6aZHKTju2mQ9NmUqdtEjzBbiZN0kk93mJjFgmxmVUSizEyGAvLGEkYY1xj
@@ -332,7 +332,7 @@
         eFlIfcZWkaZQK1k+7V3sbIOORObh5VHuIzKHOcxhDq8J8+b9Dx3RijOM+bPFAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="mượnSáchToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnMuonSach.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABGdBTUEAALGPC/xhBQAACApJREFUaEPt
         mXtQVNcdx82kj7SdPqaZdiaAJE0105jE0aQ1xFYEgsYm06StQmJC0qhhUUTA5U1AQBAU5A0KIgFUIMjL
@@ -372,7 +372,7 @@
         jDLKKKOeQM2b939GlsAgW1Rg0QAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="trảSáchToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnTraSach.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABGdBTUEAALGPC/xhBQAABwlJREFUaEPt
         mllPG1cUx6NK/QJ9q9S+VmrVSK3avve1z/0OeQDbIWDsQCAhISlxGdthCWAWzx2vCasJJMZAWM1u1gZS
@@ -408,7 +408,7 @@
         g+EAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="chiTiếtMượnTrảToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnChiTietMuonTra.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABGdBTUEAALGPC/xhBQAABPFJREFUaEPt
         md9vU2UYx5doool6LfPaX/HnPyDzBzC6tpv70W1t11VlMryBzY0tOFFnwKhBLhAvBKKRLCalBg0XBuOG
