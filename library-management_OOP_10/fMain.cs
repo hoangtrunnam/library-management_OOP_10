@@ -59,5 +59,11 @@ namespace library_management_OOP_10
             fMuonSach ms = new fMuonSach();
             ms.Show();
         }
+
+        private void trảSáchToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            fTraSach ts = new fTraSach();
+            ts.Show();
+        }
     }
 }
