@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Reflection;
+using System.IO;
 
 namespace library_management_OOP_10
 {
@@ -27,15 +29,15 @@ namespace library_management_OOP_10
             if(txtTimMSSV.Text != "")
             {
                 label1.Visible = false;
-                //Thay Duong dan cua minh
-                Image image = Image.FromFile("C:/Users/PC/Desktop/DoAnOOP/library-management_OOP_10/assets/search1.gif");
+                string fullPath = System.IO.Path.Combine(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetEntryAssembly().Location), "assets\\search1.gif");
+                Image image = Image.FromFile(fullPath);
                 pictureSearch.Image = image;
             }
             else
             {
                 label1.Visible = true;
-                //Thay Duong dan cua minh
-                Image image = Image.FromFile("C:/Users/PC/Desktop/DoAnOOP/library-management_OOP_10/assets/search.gif");
+                string fullPath = System.IO.Path.Combine(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetEntryAssembly().Location), "assets\\search.gif");
+                Image image = Image.FromFile(fullPath);
                 pictureSearch.Image = image;
             }
         }
