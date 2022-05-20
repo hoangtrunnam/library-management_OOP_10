@@ -82,6 +82,12 @@
     <Compile Include="fThemMoiDocGia.Designer.cs">
       <DependentUpon>fThemMoiDocGia.cs</DependentUpon>
     </Compile>
+    <Compile Include="fTraSach.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fTraSach.Designer.cs">
+      <DependentUpon>fTraSach.cs</DependentUpon>
+    </Compile>
     <Compile Include="fXemDsSach.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -112,6 +118,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="fThemMoiDocGia.resx">
       <DependentUpon>fThemMoiDocGia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fTraSach.resx">
+      <DependentUpon>fTraSach.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="fXemDsSach.resx">
       <DependentUpon>fXemDsSach.cs</DependentUpon>

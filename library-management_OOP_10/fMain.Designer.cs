@@ -114,7 +114,7 @@
             this.thêmMớiĐộcGiảToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("thêmMớiĐộcGiảToolStripMenuItem.Image")));
             this.thêmMớiĐộcGiảToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.thêmMớiĐộcGiảToolStripMenuItem.Name = "thêmMớiĐộcGiảToolStripMenuItem";
-            this.thêmMớiĐộcGiảToolStripMenuItem.Size = new System.Drawing.Size(214, 56);
+            this.thêmMớiĐộcGiảToolStripMenuItem.Size = new System.Drawing.Size(204, 56);
             this.thêmMớiĐộcGiảToolStripMenuItem.Text = "Thêm mới độc giả";
             this.thêmMớiĐộcGiảToolStripMenuItem.Click += new System.EventHandler(this.thêmMớiĐộcGiảToolStripMenuItem_Click);
             // 
@@ -123,7 +123,7 @@
             this.xemDanhSáchToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("xemDanhSáchToolStripMenuItem.Image")));
             this.xemDanhSáchToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.xemDanhSáchToolStripMenuItem.Name = "xemDanhSáchToolStripMenuItem";
-            this.xemDanhSáchToolStripMenuItem.Size = new System.Drawing.Size(214, 56);
+            this.xemDanhSáchToolStripMenuItem.Size = new System.Drawing.Size(204, 56);
             this.xemDanhSáchToolStripMenuItem.Text = "Xem danh sách ";
             this.xemDanhSáchToolStripMenuItem.Click += new System.EventHandler(this.xemDanhSáchToolStripMenuItem_Click);
             // 
@@ -144,6 +144,7 @@
             this.trảSáchToolStripMenuItem.Name = "trảSáchToolStripMenuItem";
             this.trảSáchToolStripMenuItem.Size = new System.Drawing.Size(111, 54);
             this.trảSáchToolStripMenuItem.Text = "Trả sách";
+            this.trảSáchToolStripMenuItem.Click += new System.EventHandler(this.trảSáchToolStripMenuItem_Click);
             // 
             // chiTiếtMượnTrảToolStripMenuItem
             // 
