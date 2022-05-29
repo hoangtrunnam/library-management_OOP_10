@@ -61,17 +61,21 @@ namespace library_management_OOP_10
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = conn;
 
-            cmd.CommandText = "select * from authen where authen.tenDangNhap = '" + txtTenDangNhap.Text + "' and authen.matKhau = '" + txtMatKhau.Text + "' "; // câu lệnh truy vấn
+            cmd.CommandText = "select * from authen where authen.maTT = '" + txtTenDangNhap.Text + "' and authen.matKhau = '" + txtMatKhau.Text + "' "; // câu lệnh truy vấn
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataSet ds = new DataSet();
-            int a = 5;
             da.Fill(ds);
+            
 
-            if(ds.Tables[0].Rows.Count > 0)
+
+            if (ds.Tables[0].Rows.Count > 0)
             {
+                GlobalVar.globalMaTT = txtTenDangNhap.Text; // lấy ra mã đăng nhập của thủ thư
+                int a = 5;
                 fMain f = new fMain();
                 this.Hide();
                 f.ShowDialog();
+                
             }
             else
             {
