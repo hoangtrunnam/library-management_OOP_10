@@ -31,23 +31,25 @@ namespace library_management_OOP_10
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fThemMoiDocGia));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.textTenDocGia = new System.Windows.Forms.TextBox();
-            this.textMSSV = new System.Windows.Forms.TextBox();
-            this.textLop = new System.Windows.Forms.TextBox();
-            this.textKhoa = new System.Windows.Forms.TextBox();
-            this.textSDT = new System.Windows.Forms.TextBox();
-            this.btnLamMoi = new System.Windows.Forms.Button();
-            this.btnLuu = new System.Windows.Forms.Button();
+            this.textGioiTinh = new System.Windows.Forms.TextBox();
+            this.labelGioiTinh = new System.Windows.Forms.Label();
             this.btnThoat = new System.Windows.Forms.Button();
+            this.btnLuu = new System.Windows.Forms.Button();
+            this.btnLamMoi = new System.Windows.Forms.Button();
+            this.textSDT = new System.Windows.Forms.TextBox();
+            this.textKhoa = new System.Windows.Forms.TextBox();
+            this.textLop = new System.Windows.Forms.TextBox();
+            this.textMSSV = new System.Windows.Forms.TextBox();
+            this.textTenDocGia = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -64,16 +66,6 @@ namespace library_management_OOP_10
             this.panel1.Size = new System.Drawing.Size(688, 77);
             this.panel1.TabIndex = 0;
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(242, 0);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(100, 77);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 1;
-            this.pictureBox2.TabStop = false;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -84,6 +76,16 @@ namespace library_management_OOP_10
             this.label1.TabIndex = 2;
             this.label1.Text = "Thêm mới độc giả";
             this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(242, 0);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(100, 77);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 1;
+            this.pictureBox2.TabStop = false;
             // 
             // pictureBox1
             // 
@@ -98,6 +100,8 @@ namespace library_management_OOP_10
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.panel2.Controls.Add(this.textGioiTinh);
+            this.panel2.Controls.Add(this.labelGioiTinh);
             this.panel2.Controls.Add(this.btnThoat);
             this.panel2.Controls.Add(this.btnLuu);
             this.panel2.Controls.Add(this.btnLamMoi);
@@ -117,113 +121,22 @@ namespace library_management_OOP_10
             this.panel2.TabIndex = 2;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
-            // label2
+            // textGioiTinh
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(55, 42);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(98, 20);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Tên Độc Giả";
+            this.textGioiTinh.Location = new System.Drawing.Point(206, 237);
+            this.textGioiTinh.Name = "textGioiTinh";
+            this.textGioiTinh.Size = new System.Drawing.Size(199, 20);
+            this.textGioiTinh.TabIndex = 14;
             // 
-            // label3
+            // labelGioiTinh
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(55, 82);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(107, 20);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "Mã Sinh Viên ";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(55, 121);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(40, 20);
-            this.label4.TabIndex = 2;
-            this.label4.Text = "Lớp ";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(55, 161);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(46, 20);
-            this.label5.TabIndex = 3;
-            this.label5.Text = "Khoa";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(55, 201);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(109, 20);
-            this.label6.TabIndex = 4;
-            this.label6.Text = "Số Điện Thoại";
-            // 
-            // textTenDocGia
-            // 
-            this.textTenDocGia.Location = new System.Drawing.Point(206, 44);
-            this.textTenDocGia.Name = "textTenDocGia";
-            this.textTenDocGia.Size = new System.Drawing.Size(199, 20);
-            this.textTenDocGia.TabIndex = 5;
-            // 
-            // textMSSV
-            // 
-            this.textMSSV.Location = new System.Drawing.Point(206, 86);
-            this.textMSSV.Name = "textMSSV";
-            this.textMSSV.Size = new System.Drawing.Size(199, 20);
-            this.textMSSV.TabIndex = 6;
-            // 
-            // textLop
-            // 
-            this.textLop.Location = new System.Drawing.Point(206, 123);
-            this.textLop.Name = "textLop";
-            this.textLop.Size = new System.Drawing.Size(199, 20);
-            this.textLop.TabIndex = 7;
-            // 
-            // textKhoa
-            // 
-            this.textKhoa.Location = new System.Drawing.Point(206, 165);
-            this.textKhoa.Name = "textKhoa";
-            this.textKhoa.Size = new System.Drawing.Size(199, 20);
-            this.textKhoa.TabIndex = 8;
-            // 
-            // textSDT
-            // 
-            this.textSDT.Location = new System.Drawing.Point(206, 203);
-            this.textSDT.Name = "textSDT";
-            this.textSDT.Size = new System.Drawing.Size(199, 20);
-            this.textSDT.TabIndex = 9;
-            // 
-            // btnLamMoi
-            // 
-            this.btnLamMoi.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnLamMoi.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLamMoi.Location = new System.Drawing.Point(66, 285);
-            this.btnLamMoi.Name = "btnLamMoi";
-            this.btnLamMoi.Size = new System.Drawing.Size(75, 23);
-            this.btnLamMoi.TabIndex = 10;
-            this.btnLamMoi.Text = "Làm Mới ";
-            this.btnLamMoi.UseVisualStyleBackColor = true;
-            // 
-            // btnLuu
-            // 
-            this.btnLuu.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnLuu.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLuu.Location = new System.Drawing.Point(182, 285);
-            this.btnLuu.Name = "btnLuu";
-            this.btnLuu.Size = new System.Drawing.Size(75, 23);
-            this.btnLuu.TabIndex = 11;
-            this.btnLuu.Text = "Lưu";
-            this.btnLuu.UseVisualStyleBackColor = true;
+            this.labelGioiTinh.AutoSize = true;
+            this.labelGioiTinh.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelGioiTinh.Location = new System.Drawing.Point(55, 237);
+            this.labelGioiTinh.Name = "labelGioiTinh";
+            this.labelGioiTinh.Size = new System.Drawing.Size(71, 20);
+            this.labelGioiTinh.TabIndex = 13;
+            this.labelGioiTinh.Text = "Giới Tính";
             // 
             // btnThoat
             // 
@@ -236,6 +149,116 @@ namespace library_management_OOP_10
             this.btnThoat.Text = "Thoát";
             this.btnThoat.UseVisualStyleBackColor = true;
             this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
+            // 
+            // btnLuu
+            // 
+            this.btnLuu.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnLuu.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLuu.Location = new System.Drawing.Point(182, 285);
+            this.btnLuu.Name = "btnLuu";
+            this.btnLuu.Size = new System.Drawing.Size(75, 23);
+            this.btnLuu.TabIndex = 11;
+            this.btnLuu.Text = "Lưu";
+            this.btnLuu.UseVisualStyleBackColor = true;
+            this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
+            // 
+            // btnLamMoi
+            // 
+            this.btnLamMoi.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnLamMoi.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLamMoi.Location = new System.Drawing.Point(66, 285);
+            this.btnLamMoi.Name = "btnLamMoi";
+            this.btnLamMoi.Size = new System.Drawing.Size(75, 23);
+            this.btnLamMoi.TabIndex = 10;
+            this.btnLamMoi.Text = "Làm Mới ";
+            this.btnLamMoi.UseVisualStyleBackColor = true;
+            this.btnLamMoi.Click += new System.EventHandler(this.btnLamMoi_Click);
+            // 
+            // textSDT
+            // 
+            this.textSDT.Location = new System.Drawing.Point(206, 203);
+            this.textSDT.Name = "textSDT";
+            this.textSDT.Size = new System.Drawing.Size(199, 20);
+            this.textSDT.TabIndex = 9;
+            // 
+            // textKhoa
+            // 
+            this.textKhoa.Location = new System.Drawing.Point(206, 165);
+            this.textKhoa.Name = "textKhoa";
+            this.textKhoa.Size = new System.Drawing.Size(199, 20);
+            this.textKhoa.TabIndex = 8;
+            // 
+            // textLop
+            // 
+            this.textLop.Location = new System.Drawing.Point(206, 123);
+            this.textLop.Name = "textLop";
+            this.textLop.Size = new System.Drawing.Size(199, 20);
+            this.textLop.TabIndex = 7;
+            // 
+            // textMSSV
+            // 
+            this.textMSSV.Location = new System.Drawing.Point(206, 86);
+            this.textMSSV.Name = "textMSSV";
+            this.textMSSV.Size = new System.Drawing.Size(199, 20);
+            this.textMSSV.TabIndex = 6;
+            // 
+            // textTenDocGia
+            // 
+            this.textTenDocGia.Location = new System.Drawing.Point(206, 44);
+            this.textTenDocGia.Name = "textTenDocGia";
+            this.textTenDocGia.Size = new System.Drawing.Size(199, 20);
+            this.textTenDocGia.TabIndex = 5;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(55, 201);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(109, 20);
+            this.label6.TabIndex = 4;
+            this.label6.Text = "Số Điện Thoại";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(55, 161);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(46, 20);
+            this.label5.TabIndex = 3;
+            this.label5.Text = "Khoa";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(55, 121);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(40, 20);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "Lớp ";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(55, 82);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(107, 20);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "Mã Sinh Viên ";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(55, 42);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(98, 20);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Tên Độc Giả";
             // 
             // fThemMoiDocGia
             // 
@@ -278,5 +301,7 @@ namespace library_management_OOP_10
         private System.Windows.Forms.Button btnThoat;
         private System.Windows.Forms.Button btnLuu;
         private System.Windows.Forms.Button btnLamMoi;
+        private System.Windows.Forms.TextBox textGioiTinh;
+        private System.Windows.Forms.Label labelGioiTinh;
     }
 }

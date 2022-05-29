@@ -20,7 +20,7 @@ namespace library_management_OOP_10
 
         private void btnLuu_Click(object sender, EventArgs e)
         {
-            if (txtTenSach.Text != "" && txtTenTacGia.Text != "" && txtNhaXuatBan.Text != "" && txtNgayMuaSach.Text != "" && txtGiaSach.Text != "" && txtSoLuongSach.Text != "")
+            if (txtTenSach.Text != "" && txtTenSach.Text != "" && txtTenTacGia.Text != "" && txtNhaXuatBan.Text != "" && txtNgayMuaSach.Text != "" && txtGiaSach.Text != "" && txtSoLuongSach.Text != "")
             {
 
 
@@ -28,6 +28,7 @@ namespace library_management_OOP_10
                 string tenTacGia = txtTenTacGia.Text;
                 string nhaXuatBan = txtNhaXuatBan.Text;
                 string ngayMuaSach = txtNgayMuaSach.Text;
+                string keSach = txtKeSach.Text;
                 Int64 giaSach = Int64.Parse(txtGiaSach.Text);
                 Int64 soLuong = Int64.Parse(txtSoLuongSach.Text);
 
@@ -37,12 +38,18 @@ namespace library_management_OOP_10
                 cmd.Connection = conn;
 
                 conn.Open();
-                cmd.CommandText = "insert into quanLySach (tenSach,tenTacGia,nhaXuatBan,ngayMuaSach,giaSach,soLuong) values " +
-                    "('" + tenSach + "','" + tenTacGia + "','" + nhaXuatBan + "', '" + ngayMuaSach + "'," + giaSach + "," + soLuong + ")";
+                cmd.CommandText = "insert into tbl_Sach (tenSach,tenTacGia,nhaXuatBan,ngayMuaSach,giaSach,soLuong,keSach) values " +
+                    "(N'" + tenSach + "',N'" + tenTacGia + "',N'" + nhaXuatBan + "', '" + ngayMuaSach + "'," + giaSach + "," + soLuong + "," + keSach + ")";
                 cmd.ExecuteNonQuery();
                 conn.Close();
 
                 MessageBox.Show("Lưu sách mới thành công", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtSoLuongSach.Clear();
+                txtGiaSach.Clear();
+                txtNhaXuatBan.Clear();
+                txtTenTacGia.Clear();
+                txtTenSach.Clear();
+                txtKeSach.Clear();
             }
 
             else
@@ -54,7 +61,7 @@ namespace library_management_OOP_10
 
         private void btnThoat_Click(object sender, EventArgs e)
         {
-            if (txtTenSach.Text == "" && txtTenTacGia.Text == "" && txtNhaXuatBan.Text == "" && txtGiaSach.Text == "" && txtSoLuongSach.Text == "")
+            if (txtKeSach.Text == "" && txtTenSach.Text == "" && txtTenTacGia.Text == "" && txtNhaXuatBan.Text == "" && txtGiaSach.Text == "" && txtSoLuongSach.Text == "")
             {
                 this.Close();
                 return;
@@ -63,6 +70,17 @@ namespace library_management_OOP_10
             {
                 this.Close();
             }
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            txtSoLuongSach.Clear();
+            txtGiaSach.Clear();
+            txtNhaXuatBan.Clear();
+            txtTenTacGia.Clear();
+            txtTenSach.Clear();
+            txtKeSach.Clear();
 
         }
     }

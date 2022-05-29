@@ -155,5 +155,10 @@ namespace library_management_OOP_10
                 da.Fill(ds);
             }
         }
+
+        private void panelThongTinSach_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
