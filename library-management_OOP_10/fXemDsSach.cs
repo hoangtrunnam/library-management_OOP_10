@@ -36,14 +36,14 @@ namespace library_management_OOP_10
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = conn;
 
-            cmd.CommandText = "select * from quanLySach";
+            cmd.CommandText = "select * from tbl_Sach";
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataSet ds = new DataSet();
             da.Fill(ds);
 
             dataGridView1.DataSource = ds.Tables[0];
         }
-        int bookId;
+        int bookId; // lấy ra id của sách để sửa
         Int64 rowId;
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -58,7 +58,7 @@ namespace library_management_OOP_10
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = conn;
 
-            cmd.CommandText = "select * from quanLySach where quanLySach.id = " + bookId+"";
+            cmd.CommandText = "select * from tbl_Sach where tbl_Sach.maSach = " + bookId+"";
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataSet ds = new DataSet();
             da.Fill(ds);
@@ -71,6 +71,7 @@ namespace library_management_OOP_10
             txtNgayMuaSach.Text = ds.Tables[0].Rows[0][4].ToString(); // đang bị lỗi nếu nhấn vào trường có data kiểu như : 10/02/2022
             txtGiaSach.Text = ds.Tables[0].Rows[0][5].ToString();
             txtSoLuong.Text = ds.Tables[0].Rows[0][6].ToString();
+            txtKeSach.Text = ds.Tables[0].Rows[0][7].ToString();
         }
 
         private void txtTimSach_TextChanged(object sender, EventArgs e)
@@ -82,7 +83,7 @@ namespace library_management_OOP_10
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = conn;
 
-                cmd.CommandText = $@"select * from quanLySach where tenSach LIKE '{txtTimSach.Text}%' ";
+                cmd.CommandText = $@"select * from tbl_Sach where tenSach LIKE '{txtTimSach.Text}%' ";
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 DataSet ds = new DataSet();
                 da.Fill(ds);
@@ -96,7 +97,7 @@ namespace library_management_OOP_10
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = conn;
 
-                cmd.CommandText = "select * from quanLySach";
+                cmd.CommandText = "select * from tbl_Sach";
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 DataSet ds = new DataSet();
                 da.Fill(ds);
@@ -122,13 +123,16 @@ namespace library_management_OOP_10
                 string ngayMuaSach = txtNgayMuaSach.Text;
                 Int64 giaSach = Int64.Parse(txtGiaSach.Text);
                 Int64 soLuong = Int64.Parse(txtSoLuong.Text);
+                Int64 keSach = Int64.Parse(txtKeSach.Text);
+
+
 
                 SqlConnection conn = new SqlConnection();
                 conn.ConnectionString = "data source = '" + GlobalVar.GlobalDomain + "' ; database= '" + GlobalVar.globalDataBase + "'; integrated security=True"; //lib_Management là tên database
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = conn;
 
-                cmd.CommandText = "update quanLySach set tenSach = '" + tenSach + "',tenTacGia= '" + tenTacGia + "', nhaXuatBan= '" + nhaXuatBan+"' , ngayMuaSach = '" + ngayMuaSach + "', giaSach= " + giaSach + " ,soLuong=" + soLuong + " where id= "+rowId+" ";
+                cmd.CommandText = "update tbl_Sach set tenSach = '" + tenSach + "',tenTacGia= '" + tenTacGia + "', nhaXuatBan= '" + nhaXuatBan+"' , ngayMuaSach = '" + ngayMuaSach + "', giaSach= " + giaSach + " ,soLuong=" + soLuong + " ,keSach=" + keSach + " where maSach = "+rowId+" ";
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 DataSet ds = new DataSet();
                 da.Fill(ds);
@@ -145,7 +149,7 @@ namespace library_management_OOP_10
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = conn;
 
-                cmd.CommandText = "delete from quanLySach where id="+rowId+" ";
+                cmd.CommandText = "delete from tbl_Sach where maSach="+rowId+" ";
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 DataSet ds = new DataSet();
                 da.Fill(ds);
