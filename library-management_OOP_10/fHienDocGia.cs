@@ -36,6 +36,7 @@ namespace library_management_OOP_10
         string rowMssv;
         private void txtTimMSSV_TextChanged(object sender, EventArgs e)
         {
+            // trạng thái load ảnh
             if(txtTimMSSV.Text != "")
             {
                 label1.Visible = false;
@@ -50,7 +51,7 @@ namespace library_management_OOP_10
                 Image image = Image.FromFile(fullPath);
                 pictureSearch.Image = image;
             }
-
+            // trạng thái hiện data
             if (txtTimMSSV.Text != "")
             {
                 SqlConnection conn = new SqlConnection();
@@ -58,7 +59,7 @@ namespace library_management_OOP_10
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = conn;
 
-                cmd.CommandText = $@"select * from tbl_sinhVien where hoTenSV LIKE '{txtTimMSSV.Text}%' ";
+                cmd.CommandText = $@"select * from tbl_sinhVien where Mssv LIKE '{txtTimMSSV.Text}%' ";
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 DataSet ds = new DataSet();
                 da.Fill(ds);
@@ -78,13 +79,14 @@ namespace library_management_OOP_10
                 da.Fill(ds);
 
                 subFormDSDocGia.DataSource = ds.Tables[0];
+
             }
         }
 
         private void btnTim_Click(object sender, EventArgs e)
         {
             txtTimMSSV.Clear();
-            subFormDSDocGia.Visible = false;
+            subFormDSDocGia.Visible = true;
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
@@ -106,30 +108,7 @@ namespace library_management_OOP_10
         string mssv;
         private void subFormDSDocGia_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (subFormDSDocGia.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
-            {
-                mssv = subFormDSDocGia.Rows[e.RowIndex].Cells[0].Value.ToString();
-                // MessageBox.Show(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
-            }
-            panel2.Visible = true;
-            SqlConnection conn = new SqlConnection();
-            conn.ConnectionString = "data source = '" + GlobalVar.GlobalDomain + "' ; database= '" + GlobalVar.globalDataBase + "'; integrated security=True"; //lib_Management là tên database
-            SqlCommand cmd = new SqlCommand();
-            cmd.Connection = conn;
-
-            cmd.CommandText = "select * from tbl_sinhVien where tbl_sinhVien.mssv = " + mssv + "";
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            DataSet ds = new DataSet();
-            da.Fill(ds);
-
-            rowMssv =ds.Tables[0].Rows[0][0].ToString();
-
-            txtSDT.Text = ds.Tables[0].Rows[0][5].ToString();
-            txtKhoa.Text = ds.Tables[0].Rows[0][4].ToString();
-            txtLop.Text = ds.Tables[0].Rows[0][3].ToString();
-            txtMSSV.Text = ds.Tables[0].Rows[0][0].ToString(); // đang bị lỗi nếu nhấn vào trường có data kiểu như : 10/02/2022
-            txtTenDocGia.Text = ds.Tables[0].Rows[0][1].ToString();
-            txtGioiTinh.Text = ds.Tables[0].Rows[0][2].ToString();
+            
             
         }
 
@@ -172,7 +151,7 @@ namespace library_management_OOP_10
                 {
                     
 
-                    cmd.CommandText = $@"select * from tbl_sinhVien where hoTenSV LIKE '{txtTimMSSV.Text}%' ";
+                    cmd.CommandText = $@"select * from tbl_sinhVien where Mssv LIKE '{txtTimMSSV.Text}%' ";
                    
                     da.Fill(ds);
 
@@ -193,6 +172,52 @@ namespace library_management_OOP_10
 
 
             }
+        }
+
+        private void fHienDocGia_Load(object sender, EventArgs e)
+        {
+            panel2.Visible = false;
+            SqlConnection conn = new SqlConnection();
+            conn.ConnectionString = "data source = '" + GlobalVar.GlobalDomain + "' ; database= '" + GlobalVar.globalDataBase + "'; integrated security=True"; //lib_Management là tên database
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = conn;
+
+            cmd.CommandText = "select * from tbl_sinhVien";
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+
+            subFormDSDocGia.DataSource = ds.Tables[0];
+
+        }
+
+        // bắt sự kiện click vào 1 hàng trong bảng data được đổ ra
+        private void subFormDSDocGia_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (subFormDSDocGia.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+            {
+                mssv = subFormDSDocGia.Rows[e.RowIndex].Cells[0].Value.ToString();
+                // MessageBox.Show(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
+            }
+            panel2.Visible = true;
+            SqlConnection conn = new SqlConnection();
+            conn.ConnectionString = "data source = '" + GlobalVar.GlobalDomain + "' ; database= '" + GlobalVar.globalDataBase + "'; integrated security=True"; //lib_Management là tên database
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = conn;
+
+            cmd.CommandText = "select * from tbl_sinhVien where tbl_sinhVien.mssv = " + mssv + "";
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+
+            rowMssv = ds.Tables[0].Rows[0][0].ToString();
+
+            txtSDT.Text = ds.Tables[0].Rows[0][5].ToString();
+            txtKhoa.Text = ds.Tables[0].Rows[0][4].ToString();
+            txtLop.Text = ds.Tables[0].Rows[0][3].ToString();
+            txtMSSV.Text = ds.Tables[0].Rows[0][0].ToString();
+            txtTenDocGia.Text = ds.Tables[0].Rows[0][1].ToString();
+            txtGioiTinh.Text = ds.Tables[0].Rows[0][2].ToString();
         }
     }
 }
