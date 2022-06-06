@@ -39,11 +39,6 @@ namespace library_management_OOP_10
             fXemDsSach f = new fXemDsSach();
             f.Show();
         }
-<<<<<<< Updated upstream
-=======
-<<<<<<< Updated upstream
-=======
->>>>>>> Stashed changes
 
         private void btnThemMoiDocGia_Click(object sender, EventArgs e)
         {
@@ -71,14 +66,14 @@ namespace library_management_OOP_10
 
         private void btnChiTietMuonTra_Click(object sender, EventArgs e)
         {
-<<<<<<< Updated upstream
-
-        }
-=======
             fCompleteBookDetails ct = new fCompleteBookDetails();
             ct.Show();
         }
->>>>>>> Stashed changes
->>>>>>> Stashed changes
+
+        private void fMain_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
+

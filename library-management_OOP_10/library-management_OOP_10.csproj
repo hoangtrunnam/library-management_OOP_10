@@ -52,27 +52,18 @@
     <Compile Include="fAddNewBook.Designer.cs">
       <DependentUpon>fAddNewBook.cs</DependentUpon>
     </Compile>
-<<<<<<< Updated upstream
-=======
-<<<<<<< Updated upstream
-=======
     <Compile Include="fCompleteBookDetails.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="fCompleteBookDetails.Designer.cs">
       <DependentUpon>fCompleteBookDetails.cs</DependentUpon>
     </Compile>
->>>>>>> Stashed changes
     <Compile Include="fHienDocGia.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="fHienDocGia.Designer.cs">
       <DependentUpon>fHienDocGia.cs</DependentUpon>
     </Compile>
-<<<<<<< Updated upstream
-=======
->>>>>>> Stashed changes
->>>>>>> Stashed changes
     <Compile Include="fLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -119,21 +110,12 @@
     <EmbeddedResource Include="fAddNewBook.resx">
       <DependentUpon>fAddNewBook.cs</DependentUpon>
     </EmbeddedResource>
-<<<<<<< Updated upstream
     <EmbeddedResource Include="fHienDocGia.resx">
       <DependentUpon>fHienDocGia.cs</DependentUpon>
     </EmbeddedResource>
-=======
-<<<<<<< Updated upstream
-=======
     <EmbeddedResource Include="fCompleteBookDetails.resx">
       <DependentUpon>fCompleteBookDetails.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="fHienDocGia.resx">
-      <DependentUpon>fHienDocGia.cs</DependentUpon>
-    </EmbeddedResource>
->>>>>>> Stashed changes
->>>>>>> Stashed changes
     <EmbeddedResource Include="fLogin.resx">
       <DependentUpon>fLogin.cs</DependentUpon>
     </EmbeddedResource>

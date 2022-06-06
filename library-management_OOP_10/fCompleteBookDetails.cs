@@ -20,10 +20,10 @@ namespace library_management_OOP_10
 
         private void fCompleteBookDetails_Load(object sender, EventArgs e)
         {
-            SqlConnection con = new SqlConnection();
-            con.ConnectionString = "data source = DESKTOP-N5O8163\\SQLEXPRESS; database = lib_Management2; integrated security = True";
-            SqlCommand cmd = con.CreateCommand();
-            cmd.Connection = con;
+            SqlConnection conn = new SqlConnection();
+            conn.ConnectionString = "data source = '" + GlobalVar.GlobalDomain + "' ;database= '" + GlobalVar.globalDataBase + "'; integrated security=True"; //lib_Management là tên database
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = conn;
 
             cmd.CommandText = "select m.maMuon,m.Mssv,sv.hoTenSV,m.maSach,s.tenSach,m.maTT,m.ngayMuon,m.ngayHenTra " +
                                 "from tbl_Muon m, tbl_sinhVien sv, tbl_Sach s " +
