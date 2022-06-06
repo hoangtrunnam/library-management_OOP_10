@@ -57,7 +57,9 @@ namespace library_management_OOP_10
 
         Int64 maMuon;
         Int64 maSach;
-        private void subFormTraSach_CellContentClick(object sender, DataGridViewCellEventArgs e)
+
+
+        private void subFormTraSach_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (subFormTraSach.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
             {
@@ -149,7 +151,6 @@ namespace library_management_OOP_10
                     cmd.Connection = conn;
 
                     cmd.CommandText = "select * from tbl_Muon";
-                    int a = 1;
                     SqlDataAdapter da = new SqlDataAdapter(cmd);
                     DataSet ds = new DataSet();
                     da.Fill(ds);
@@ -200,6 +201,15 @@ namespace library_management_OOP_10
             txtNgayMuon.Clear();
             txtMaSachTra.Clear();
             txtTenSach.Clear();
+        }
+        private void fTraSach_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

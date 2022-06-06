@@ -66,7 +66,14 @@ namespace library_management_OOP_10
 
         private void btnChiTietMuonTra_Click(object sender, EventArgs e)
         {
+            fCompleteBookDetails ct = new fCompleteBookDetails();
+            ct.Show();
+        }
+
+        private void fMain_Load(object sender, EventArgs e)
+        {
 
         }
     }
 }
+

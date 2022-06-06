@@ -52,6 +52,12 @@
     <Compile Include="fAddNewBook.Designer.cs">
       <DependentUpon>fAddNewBook.cs</DependentUpon>
     </Compile>
+    <Compile Include="fCompleteBookDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fCompleteBookDetails.Designer.cs">
+      <DependentUpon>fCompleteBookDetails.cs</DependentUpon>
+    </Compile>
     <Compile Include="fHienDocGia.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -106,6 +112,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="fHienDocGia.resx">
       <DependentUpon>fHienDocGia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fCompleteBookDetails.resx">
+      <DependentUpon>fCompleteBookDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="fLogin.resx">
       <DependentUpon>fLogin.cs</DependentUpon>
