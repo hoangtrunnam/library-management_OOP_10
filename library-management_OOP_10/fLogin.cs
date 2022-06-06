@@ -64,9 +64,19 @@ namespace library_management_OOP_10
             cmd.CommandText = "select * from authen where authen.maTT = '" + txtTenDangNhap.Text + "' and authen.matKhau = '" + txtMatKhau.Text + "' "; // câu lệnh truy vấn
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataSet ds = new DataSet();
+<<<<<<< Updated upstream
             da.Fill(ds);
+<<<<<<< Updated upstream
             
 
+=======
+=======
+            da.Fill(ds); 
+            int b = 5;
+            
+            
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
 
             if (ds.Tables[0].Rows.Count > 0)
             {

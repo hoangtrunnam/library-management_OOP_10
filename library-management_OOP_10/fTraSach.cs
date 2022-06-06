@@ -149,7 +149,10 @@ namespace library_management_OOP_10
                     cmd.Connection = conn;
 
                     cmd.CommandText = "select * from tbl_Muon";
+<<<<<<< Updated upstream
                     int a = 1;
+=======
+>>>>>>> Stashed changes
                     SqlDataAdapter da = new SqlDataAdapter(cmd);
                     DataSet ds = new DataSet();
                     da.Fill(ds);
@@ -201,5 +204,13 @@ namespace library_management_OOP_10
             txtMaSachTra.Clear();
             txtTenSach.Clear();
         }
+<<<<<<< Updated upstream
+=======
+
+        private void fTraSach_Load(object sender, EventArgs e)
+        {
+
+        }
+>>>>>>> Stashed changes
     }
 }

@@ -287,6 +287,10 @@ namespace library_management_OOP_10
             this.Controls.Add(this.panel1);
             this.Name = "fTraSach";
             this.Text = "Mã Sách";
+<<<<<<< Updated upstream
+=======
+            this.Load += new System.EventHandler(this.fTraSach_Load);
+>>>>>>> Stashed changes
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
