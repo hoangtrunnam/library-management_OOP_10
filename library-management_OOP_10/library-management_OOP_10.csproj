@@ -177,5 +177,15 @@
   <ItemGroup>
     <None Include="Resources\Login1.png" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BLL\BUS.csproj">
+      <Project>{50a13196-ac59-4637-ac0c-d91f61be6cb7}</Project>
+      <Name>BUS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DTO\DTO.csproj">
+      <Project>{2c11dded-e142-4e8d-a0b2-35a486ae403f}</Project>
+      <Name>DTO</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

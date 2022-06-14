@@ -8,11 +8,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using DTO;
+using BUS;
 namespace library_management_OOP_10
 {
     public partial class fLogin : Form
     {
+        authen taikhoan = new authen();
+        LoginBUS loginbus = new LoginBUS(); 
+
         public fLogin()
         {
             InitializeComponent();
@@ -56,7 +60,7 @@ namespace library_management_OOP_10
         private void btnLogin_Click(object sender, EventArgs e)
         {
             // DESKTOP-62VA20P\HOANGNAM
-            SqlConnection conn = new SqlConnection();
+            /*SqlConnection conn = new SqlConnection();
             conn.ConnectionString = "data source = '"+GlobalVar.GlobalDomain+ "' ;database= '" + GlobalVar.globalDataBase + "'; integrated security=True"; //lib_Management là tên database
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = conn;
@@ -80,7 +84,29 @@ namespace library_management_OOP_10
             else
             {
                 MessageBox.Show("sai tên đăng nhập hoặc mật khẩu", "Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            }*/
+            taikhoan.maTT = txtTenDangNhap.Text;
+            taikhoan.matKhau = txtMatKhau.Text;
+            string getTT = loginbus.checkLogin(taikhoan);
+
+            switch (getTT)
+            {
+                case "required_maTT":
+                    MessageBox.Show("tài khoản không được để trống");
+                    return;
+                case "required_matKhau":
+                    MessageBox.Show("mật khẩu không được để trống");
+                    return;
+                case "invalid":
+                    MessageBox.Show("thông tin tài khẩu hoặc tài khoản không chính xác");
+                    return;
             }
+            MessageBox.Show("đăng nhập thành công");
+
+            GlobalVar.globalMaTT = txtTenDangNhap.Text; // lấy ra mã đăng nhập của thủ thư
+            fMain f = new fMain();
+            this.Hide();
+            f.ShowDialog();
         }
 
         private void fLogin_Load(object sender, EventArgs e)
