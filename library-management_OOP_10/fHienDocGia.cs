@@ -56,31 +56,22 @@ namespace library_management_OOP_10
             // trạng thái hiện data
             if (txtTimMSSV.Text != "")
             {
-                SqlConnection conn = new SqlConnection();
-                conn.ConnectionString = "data source = '" + GlobalVar.GlobalDomain + "' ; database= '" + GlobalVar.globalDataBase + "'; integrated security=True"; //lib_Management là tên database
-                SqlCommand cmd = new SqlCommand();
-                cmd.Connection = conn;
-
-                cmd.CommandText = $@"select * from tbl_sinhVien where Mssv LIKE '{txtTimMSSV.Text}%' ";
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                DataSet ds = new DataSet();
-                da.Fill(ds);
-
-                subFormDSDocGia.DataSource = ds.Tables[0];
+                subFormDSDocGia.DataSource = busDocGia.timDocGia(txtTimMSSV.Text);
             }
             else
             {
-                SqlConnection conn = new SqlConnection();
-                conn.ConnectionString = "data source = '" + GlobalVar.GlobalDomain + "' ; database= '" + GlobalVar.globalDataBase + "'; integrated security=True"; //lib_Management là tên database
-                SqlCommand cmd = new SqlCommand();
-                cmd.Connection = conn;
+            //    SqlConnection conn = new SqlConnection();
+            //    conn.ConnectionString = "data source = '" + GlobalVar.GlobalDomain + "' ; database= '" + GlobalVar.globalDataBase + "'; integrated security=True"; //lib_Management là tên database
+            //    SqlCommand cmd = new SqlCommand();
+            //    cmd.Connection = conn;
 
-                cmd.CommandText = "select * from tbl_sinhVien";
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                DataSet ds = new DataSet();
-                da.Fill(ds);
+            //    //cmd.CommandText = "select * from tbl_sinhVien";
+            //    //SqlDataAdapter da = new SqlDataAdapter(cmd);
+            //    //DataSet ds = new DataSet();
+               
+            //    //da.Fill(ds);
 
-                subFormDSDocGia.DataSource = ds.Tables[0];
+                subFormDSDocGia.DataSource = busDocGia.getDocGia();
 
             }
         }
@@ -133,15 +124,7 @@ namespace library_management_OOP_10
 
 
 
-                SqlConnection conn = new SqlConnection();
-                conn.ConnectionString = "data source = '" + GlobalVar.GlobalDomain + "' ; database= '" + GlobalVar.globalDataBase + "'; integrated security=True"; //lib_Management là tên database
-                SqlCommand cmd = new SqlCommand();
-                cmd.Connection = conn;
-
-                //cmd.CommandText = "update tbl_sinhVien set hoTenSV = N'" + tenDocGia + "',Mssv= '" + MSSV +"',lop= N'" + Lop + "', khoa= N'" + Khoa + "' , sdt = " + SDT + ", gioiTinh= '" + gioiTinh+ "'  where Mssv = " + rowMssv + " ";
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                DataSet ds = new DataSet();
-                //da.Fill(ds);
+                
 
                 DTOThemDocGia docGia = new DTOThemDocGia(MSSV, tenDocGia, gioiTinh, Lop, Khoa, (int)SDT); // Vì ID tự tăng nên để ID số gì cũng dc
 
@@ -160,24 +143,14 @@ namespace library_management_OOP_10
 
                 if (txtTimMSSV.Text != "")
                 {
-                    
 
-                    cmd.CommandText = $@"select * from tbl_sinhVien where Mssv LIKE '{txtTimMSSV.Text}%' ";
-                   
-                    da.Fill(ds);
 
-                    subFormDSDocGia.DataSource = ds.Tables[0];
+                    subFormDSDocGia.DataSource = busDocGia.timDocGia(txtTimMSSV.Text);
                 }
                 else
                 {
-                    
-                    cmd.Connection = conn;
 
-                    cmd.CommandText = "select * from tbl_sinhVien";
-                    
-                    da.Fill(ds);
-
-                    subFormDSDocGia.DataSource = ds.Tables[0];
+                    subFormDSDocGia.DataSource = busDocGia.getDocGia();
                 }
 
 
@@ -187,17 +160,7 @@ namespace library_management_OOP_10
 
         private void fHienDocGia_Load(object sender, EventArgs e)
         {
-            /*panel2.Visible = false;
-            SqlConnection conn = new SqlConnection();
-            conn.ConnectionString = "data source = '" + GlobalVar.GlobalDomain + "' ; database= '" + GlobalVar.globalDataBase + "'; integrated security=True"; //lib_Management là tên database
-            SqlCommand cmd = new SqlCommand();
-            cmd.Connection = conn;
-
-            cmd.CommandText = "select * from tbl_sinhVien";
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            DataSet ds = new DataSet();
-            da.Fill(ds);*/
-            //dgvTV.DataSource = busTV.getThanhVien();
+           
             subFormDSDocGia.DataSource = busDocGia.getDocGia();
 
         }
@@ -211,24 +174,16 @@ namespace library_management_OOP_10
                 // MessageBox.Show(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
             }
             panel2.Visible = true;
-            SqlConnection conn = new SqlConnection();
-            conn.ConnectionString = "data source = '" + GlobalVar.GlobalDomain + "' ; database= '" + GlobalVar.globalDataBase + "'; integrated security=True"; //lib_Management là tên database
-            SqlCommand cmd = new SqlCommand();
-            cmd.Connection = conn;
+            busDocGia.getDocGia(mssv);
 
-            cmd.CommandText = "select * from tbl_sinhVien where tbl_sinhVien.mssv = '" + mssv+"'";
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            DataSet ds = new DataSet();
-            da.Fill(ds);
+             rowMssv = busDocGia.getDocGia(mssv).Rows[0][0].ToString();
 
-            rowMssv = ds.Tables[0].Rows[0][0].ToString();
-
-            txtSDT.Text = ds.Tables[0].Rows[0][5].ToString();
-            txtKhoa.Text = ds.Tables[0].Rows[0][4].ToString();
-            txtLop.Text = ds.Tables[0].Rows[0][3].ToString();
-            txtMSSV.Text = ds.Tables[0].Rows[0][0].ToString();
-            txtTenDocGia.Text = ds.Tables[0].Rows[0][1].ToString();
-            txtGioiTinh.Text = ds.Tables[0].Rows[0][2].ToString();
+            txtSDT.Text = busDocGia.getDocGia(mssv).Rows[0][5].ToString();
+            txtKhoa.Text = busDocGia.getDocGia(mssv).Rows[0][4].ToString();
+            txtLop.Text = busDocGia.getDocGia(mssv).Rows[0][3].ToString();
+            txtMSSV.Text = busDocGia.getDocGia(mssv).Rows[0][0].ToString();
+            txtTenDocGia.Text = busDocGia.getDocGia(mssv).Rows[0][1].ToString();
+            txtGioiTinh.Text = busDocGia.getDocGia(mssv).Rows[0][2].ToString();
         }
     }
 }

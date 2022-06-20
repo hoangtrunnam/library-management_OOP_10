@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="DALCheckLogin.cs" />
     <Compile Include="DALThemDocGia.cs" />
+    <Compile Include="DALThemMoiSach.cs" />
     <Compile Include="DBConnect.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

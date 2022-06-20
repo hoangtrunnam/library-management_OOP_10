@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="BUSCheckLogin.cs" />
     <Compile Include="BUSThemMoiDocGia.cs" />
+    <Compile Include="BUSTheoMoiSach.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -18,6 +18,11 @@ namespace BUS
         {
             return dalDocGia.getDocGia();
         }
+        //lay theo mssv
+        public DataTable getDocGia(string mssv)
+        {
+            return dalDocGia.getDocGia(mssv);
+        }
 
         public bool themDocGia(DTOThemDocGia tv)
         {
@@ -33,6 +38,11 @@ namespace BUS
         {
             return dalDocGia.xoaDocGia(mssv);
         }
+        public DataTable timDocGia(string mssv)
+        {
+            return dalDocGia.timDocGia(mssv);
+        }
+
 
 
     }
