@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DALCheckLogin.cs" />
     <Compile Include="DALThemDocGia.cs" />
     <Compile Include="DALThemMoiSach.cs" />
     <Compile Include="DBConnect.cs" />
