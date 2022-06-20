@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BUSCheckLogin.cs" />
     <Compile Include="BUSThemMoiDocGia.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

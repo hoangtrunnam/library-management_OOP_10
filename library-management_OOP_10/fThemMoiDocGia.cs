@@ -130,5 +130,10 @@ namespace library_management_OOP_10
             textMSSV.Clear();
             textTenDocGia.Clear();
         }
+
+        private void fThemMoiDocGia_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

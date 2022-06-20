@@ -8,11 +8,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DTO;
+using BUS;
 
 namespace library_management_OOP_10
 {
     public partial class fLogin : Form
+
     {
+        BUSCheckLogin busLogin = new BUSCheckLogin();
         public fLogin()
         {
             InitializeComponent();
@@ -55,32 +59,31 @@ namespace library_management_OOP_10
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            // DESKTOP-62VA20P\HOANGNAM
-            SqlConnection conn = new SqlConnection();
-            conn.ConnectionString = "data source = '"+GlobalVar.GlobalDomain+ "' ;database= '" + GlobalVar.globalDataBase + "'; integrated security=True"; //lib_Management là tên database
-            SqlCommand cmd = new SqlCommand();
-            cmd.Connection = conn;
-
-            cmd.CommandText = "select * from authen where authen.maTT = '" + txtTenDangNhap.Text + "' and authen.matKhau = '" + txtMatKhau.Text + "' "; // câu lệnh truy vấn
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            DataSet ds = new DataSet();
-            da.Fill(ds);
             
-            
-            
-
-            if (ds.Tables[0].Rows.Count > 0)
+            // bắt sự kiện đang chưa đúng ý
+            if (txtTenDangNhap.Text != "" && txtMatKhau.Text != "")
             {
-                GlobalVar.globalMaTT = txtTenDangNhap.Text; // lấy ra mã đăng nhập của thủ thư
-                fMain f = new fMain();
-                this.Hide();
-                f.ShowDialog();
-                
+                // Tạo DTo
+                DTOCheckLogin login = new DTOCheckLogin(txtTenDangNhap.Text, txtMatKhau.Text); 
+
+                // Them
+                if (busLogin.login(login))
+                {
+                    GlobalVar.globalMaTT = txtTenDangNhap.Text; // lấy ra mã đăng nhập của thủ thư
+                    fMain f = new fMain();
+                    this.Hide();
+                    f.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("Sai tên đăng nhập hoặc mật khẩu");
+                }
             }
             else
             {
-                MessageBox.Show("sai tên đăng nhập hoặc mật khẩu", "Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show("tên đăng nhập hoặc mật khẩu không được để trống");
             }
+
         }
 
         private void fLogin_Load(object sender, EventArgs e)
