@@ -10,11 +10,13 @@ using System.Windows.Forms;
 using System.Reflection;
 using System.IO;
 using System.Data.SqlClient;
-
+using BUS;
+using DTO;
 namespace library_management_OOP_10
 {
     public partial class fHienDocGia : Form
     {
+        BUSThemMoiDocGia busDocGia = new BUSThemMoiDocGia();
         public fHienDocGia()
         {
             InitializeComponent();
@@ -91,18 +93,13 @@ namespace library_management_OOP_10
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
+            string mssv = txtMSSV.Text;
             if (MessageBox.Show("dữ liệu sẽ bị xoá", "thành công", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
             {
+                    busDocGia.xoaDocGia(mssv);
+                    MessageBox.Show("Xóa thành công");
+                    subFormDSDocGia.DataSource = busDocGia.getDocGia();
 
-                SqlConnection conn = new SqlConnection();
-                conn.ConnectionString = "data source = '" + GlobalVar.GlobalDomain + "' ;database= '" + GlobalVar.globalDataBase + "'; integrated security=True"; //lib_Management là tên database
-                SqlCommand cmd = new SqlCommand();
-                cmd.Connection = conn;
-
-                cmd.CommandText = "delete from tbl_sinhVien where maSach=" + rowMssv+ " ";
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                DataSet ds = new DataSet();
-                da.Fill(ds);
             }
         }
         string mssv;
@@ -141,10 +138,24 @@ namespace library_management_OOP_10
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = conn;
 
-                cmd.CommandText = "update tbl_sinhVien set hoTenSV = N'" + tenDocGia + "',Mssv= '" + MSSV +"',lop= N'" + Lop + "', khoa= N'" + Khoa + "' , sdt = " + SDT + ", gioiTinh= '" + gioiTinh+ "'  where Mssv = " + rowMssv + " ";
+                //cmd.CommandText = "update tbl_sinhVien set hoTenSV = N'" + tenDocGia + "',Mssv= '" + MSSV +"',lop= N'" + Lop + "', khoa= N'" + Khoa + "' , sdt = " + SDT + ", gioiTinh= '" + gioiTinh+ "'  where Mssv = " + rowMssv + " ";
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 DataSet ds = new DataSet();
-                da.Fill(ds);
+                //da.Fill(ds);
+
+                DTOThemDocGia docGia = new DTOThemDocGia(MSSV, tenDocGia, gioiTinh, Lop, Khoa, (int)SDT); // Vì ID tự tăng nên để ID số gì cũng dc
+
+                // Sửa
+                if (busDocGia.suaDocGia(docGia))
+                {
+                    MessageBox.Show("Sửa thành công");
+                    //dgvTV.DataSource = busTV.getThanhVien(); // refresh datagridview
+                }
+                else
+                {
+                    MessageBox.Show("Sửa ko thành công");
+                }
+
 
 
                 if (txtTimMSSV.Text != "")
@@ -176,7 +187,7 @@ namespace library_management_OOP_10
 
         private void fHienDocGia_Load(object sender, EventArgs e)
         {
-            panel2.Visible = false;
+            /*panel2.Visible = false;
             SqlConnection conn = new SqlConnection();
             conn.ConnectionString = "data source = '" + GlobalVar.GlobalDomain + "' ; database= '" + GlobalVar.globalDataBase + "'; integrated security=True"; //lib_Management là tên database
             SqlCommand cmd = new SqlCommand();
@@ -185,9 +196,9 @@ namespace library_management_OOP_10
             cmd.CommandText = "select * from tbl_sinhVien";
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataSet ds = new DataSet();
-            da.Fill(ds);
-
-            subFormDSDocGia.DataSource = ds.Tables[0];
+            da.Fill(ds);*/
+            //dgvTV.DataSource = busTV.getThanhVien();
+            subFormDSDocGia.DataSource = busDocGia.getDocGia();
 
         }
 
@@ -205,7 +216,7 @@ namespace library_management_OOP_10
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = conn;
 
-            cmd.CommandText = "select * from tbl_sinhVien where tbl_sinhVien.mssv = " + mssv + "";
+            cmd.CommandText = "select * from tbl_sinhVien where tbl_sinhVien.mssv = '" + mssv+"'";
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataSet ds = new DataSet();
             da.Fill(ds);
