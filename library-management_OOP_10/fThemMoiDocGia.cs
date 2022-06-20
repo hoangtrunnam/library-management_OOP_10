@@ -8,15 +8,47 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using DTO;
+using BUS;
 namespace library_management_OOP_10
 {
     public partial class fThemMoiDocGia : Form
     {
+        BUSThemMoiDocGia busDocGia = new BUSThemMoiDocGia();
         public fThemMoiDocGia()
         {
             InitializeComponent();
         }
+
+        private void btnLuu_Click(object sender, EventArgs e)
+        {
+            if (textMSSV.Text != "" && textTenDocGia.Text != "" && textGioiTinh.Text != "" && textLop.Text != "" && textKhoa.Text != "" && textSDT.Text != "")
+            {
+                Int64 SDT = Int64.Parse(textSDT.Text);
+                // Tạo DTo
+                DTOThemDocGia tv = new DTOThemDocGia(textMSSV.Text, textTenDocGia.Text, textGioiTinh.Text, textLop.Text, textKhoa.Text, (int)SDT); // Vì ID tự tăng nên để ID số gì cũng dc
+
+                // Them
+                if (busDocGia.themDocGia(tv))
+                {
+                    MessageBox.Show("Thêm thành công");
+                    //dgvTV.DataSource = busTV.getThanhVien(); // refresh datagridview
+                }
+                else
+                {
+                    MessageBox.Show("Thêm ko thành công");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Xin hãy nhập đầy đủ");
+            }
+        }
+        /*
+        public fThemMoiDocGia()
+        {
+            InitializeComponent();
+        }*/
 
         private void label1_Click(object sender, EventArgs e)
         {
@@ -45,7 +77,7 @@ namespace library_management_OOP_10
                 this.Close();
             }
         }
-
+        /*
         private void btnLuu_Click(object sender, EventArgs e)
         {
             if (textTenDocGia.Text != "" && textMSSV.Text != "" && textLop.Text != "" && textKhoa.Text != "" && textSDT.Text != "" && textGioiTinh.Text != "")
@@ -88,7 +120,7 @@ namespace library_management_OOP_10
 
             }
         }
-
+        */
         private void btnLamMoi_Click(object sender, EventArgs e)
         {
             textGioiTinh.Clear();
