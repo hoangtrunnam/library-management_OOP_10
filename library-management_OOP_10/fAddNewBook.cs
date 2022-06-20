@@ -8,11 +8,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using BUS;
+using DTO;
 
 namespace library_management_OOP_10
 {
     public partial class fAddNewBook : Form
     {
+        BUSTheoMoiSach busS = new BUSTheoMoiSach();
+
         public fAddNewBook()
         {
             InitializeComponent();
@@ -31,18 +35,9 @@ namespace library_management_OOP_10
                 string keSach = txtKeSach.Text;
                 Int64 giaSach = Int64.Parse(txtGiaSach.Text);
                 Int64 soLuong = Int64.Parse(txtSoLuongSach.Text);
-
-                SqlConnection conn = new SqlConnection();
-                conn.ConnectionString = "data source = '" + GlobalVar.GlobalDomain + "' ; database= '" + GlobalVar.globalDataBase + "'; integrated security=True"; //lib_Management là tên database
-                SqlCommand cmd = new SqlCommand();
-                cmd.Connection = conn;
-
-                conn.Open();
-                cmd.CommandText = "insert into tbl_Sach (tenSach,tenTacGia,nhaXuatBan,ngayMuaSach,giaSach,soLuong,keSach) values " +
-                    "(N'" + tenSach + "',N'" + tenTacGia + "',N'" + nhaXuatBan + "', '" + ngayMuaSach + "'," + giaSach + "," + soLuong + "," + keSach + ")";
-                cmd.ExecuteNonQuery();
-                conn.Close();
-
+                DTOThemMoiSach s = new DTOThemMoiSach(tenSach, tenTacGia, nhaXuatBan, ngayMuaSach, giaSach, soLuong, keSach);
+                busS.themSach(s);
+               
                 MessageBox.Show("Lưu sách mới thành công", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 txtSoLuongSach.Clear();
                 txtGiaSach.Clear();
