@@ -8,11 +8,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using BUS;
+using DTO;
 
 namespace library_management_OOP_10
 {
     public partial class fMuonSach : Form
     {
+        BUSMuonTraSach busMT = new BUSMuonTraSach();
+        BUSCheckLogin busLogin = new BUSCheckLogin();
         public fMuonSach()
         {
             InitializeComponent();
@@ -21,34 +25,33 @@ namespace library_management_OOP_10
         private void fMuonSach_Load(object sender, EventArgs e)
         {
             // lấy ra commoBox sách từ tbl sách
-            SqlConnection conn = new SqlConnection();
-            conn.ConnectionString = "data source = '" + GlobalVar.GlobalDomain + "' ;database= '" + GlobalVar.globalDataBase + "'; integrated security=True"; //lib_Management là tên database
-            SqlCommand cmd = new SqlCommand();
-            cmd.Connection = conn;
-            conn.Open();
-            cmd = new SqlCommand("select tenSach from tbl_Sach",conn);
-            SqlDataReader sdr = cmd.ExecuteReader();
-
+            //SqlConnection conn = new SqlConnection();
+            //conn.ConnectionString = "data source = '" + GlobalVar.GlobalDomain + "' ;database= '" + GlobalVar.globalDataBase + "'; integrated security=True"; //lib_Management là tên database
+            //SqlCommand cmd = new SqlCommand();
+            //cmd.Connection = conn;
+            //conn.Open();
+            //cmd = new SqlCommand("select tenSach from tbl_Sach",conn);
+            busMT.mo();
+            SqlDataReader sdr = busMT.hiemListSach().ExecuteReader();
+            //busMT.hiemListSach();
             while (sdr.Read())
             {
                 for(int i = 0; i < sdr.FieldCount; i++)
                 {
-                    string item = sdr.GetString(i);
+                   string item = sdr.GetString(i);
                     cmbTenSachMuon.Items.Add(item);
                 }
             }
+
+
             sdr.Close();
-            conn.Close();
-            
+            //conn.Close();
+            busMT.tat();
+
 
             // lấy ra tên thủ thư khi mở form lên
-            SqlConnection conn1 = new SqlConnection();
-            conn1.ConnectionString = "data source = '" + GlobalVar.GlobalDomain + "' ;database= '" + GlobalVar.globalDataBase + "'; integrated security=True"; //lib_Management là tên database
-            SqlCommand cmd1 = new SqlCommand();
-            cmd1.Connection = conn1;
-            conn1.Open();
-            cmd1 = new SqlCommand("select * from tbl_thuThu where maTT = '"+GlobalVar.globalMaTT+"' ", conn1);
-            SqlDataReader sdr1 = cmd1.ExecuteReader();
+            busMT.mo();
+            SqlDataReader sdr1 = busMT.hiemMaTT(GlobalVar.globalMaTT).ExecuteReader();
 
 
 
@@ -59,7 +62,7 @@ namespace library_management_OOP_10
                 //int a = 5;
             }
             sdr1.Close();
-            conn1.Close();
+            busMT.tat();
         }
 
         private void txtMSSV_TextChanged(object sender, EventArgs e)
@@ -74,24 +77,17 @@ namespace library_management_OOP_10
             if(txtMSSV.Text != "")
             {
                 mssv = txtMSSV.Text;
-            SqlConnection conn1 = new SqlConnection();
-            conn1.ConnectionString = "data source = '" + GlobalVar.GlobalDomain + "' ;database= '" + GlobalVar.globalDataBase + "'; integrated security=True"; //lib_Management là tên database
-            SqlCommand cmd1 = new SqlCommand();
-            cmd1.Connection = conn1;
+            
 
-            cmd1.CommandText = "select * from tbl_sinhVien where Mssv = '" + mssv + "'";
-             SqlDataAdapter DA = new SqlDataAdapter(cmd1);
-             DataSet DS = new DataSet();
-             DA.Fill(DS);
-
-            if(DS.Tables[0].Rows.Count !=0)
+            if(busMT.timSinhVien(mssv).Tables[0].Rows.Count !=0)
                 {
-                    txtSDTMuonSach.Text = DS.Tables[0].Rows[0][5].ToString();
-                    txtKhoaMuonSach.Text = DS.Tables[0].Rows[0][4].ToString();
-                    txtLopMuonSach.Text = DS.Tables[0].Rows[0][3].ToString();
-                    txtMSSVMuonSach.Text = DS.Tables[0].Rows[0][0].ToString(); // đang bị lỗi nếu nhấn vào trường có data kiểu như : 10/02/2022
-                    txtTenDocGia.Text = DS.Tables[0].Rows[0][1].ToString();
-                    txtGTMuonSach.Text = DS.Tables[0].Rows[0][2].ToString();
+                    txtSDTMuonSach.Text = busMT.timSinhVien(mssv).Tables[0].Rows[0][5].ToString();
+                    txtKhoaMuonSach.Text = busMT.timSinhVien(mssv).Tables[0].Rows[0][4].ToString();
+                    txtLopMuonSach.Text = busMT.timSinhVien(mssv).Tables[0].Rows[0][3].ToString();
+                    txtMSSVMuonSach.Text = busMT.timSinhVien(mssv).Tables[0].Rows[0][0].ToString(); // đang bị lỗi nếu nhấn vào trường có data kiểu như : 10/02/2022
+                    txtTenDocGia.Text = busMT.timSinhVien(mssv).Tables[0].Rows[0][1].ToString();
+                    txtGTMuonSach.Text = busMT.timSinhVien(mssv).Tables[0].Rows[0][2].ToString();
+                    txtNgayMuon.Text = DateTime.Now.ToString("dd/MM/yyyy");
                 }
             else
                 {
@@ -110,7 +106,7 @@ namespace library_management_OOP_10
 
         private void cmbTenSachMuon_SelectedIndexChanged(object sender, EventArgs e)
         {
-            txtNgayHenTraSach.Text = DateTime.Now.AddDays(+30).ToString();
+            txtNgayHenTraSach.Text = DateTime.Now.AddDays(+30).ToString("dd/MM/yyyy");
         }
 
         private void btnLamMoi_Click(object sender, EventArgs e)
@@ -126,14 +122,10 @@ namespace library_management_OOP_10
         Int64 maSach;
         private void btnMuonSach_Click(object sender, EventArgs e)
         {
-            tenSach = cmbTenSachMuon.Text;
-            SqlConnection conn = new SqlConnection();
-            conn.ConnectionString = "data source = '" + GlobalVar.GlobalDomain + "' ; database= '" + GlobalVar.globalDataBase + "'; integrated security=True"; //lib_Management là tên database
-            SqlCommand cmd = new SqlCommand();
-            cmd.Connection = conn;
-            conn.Open();
-            cmd = new SqlCommand("select * from tbl_Sach where  tenSach = N'" + tenSach + "' ", conn);
-            SqlDataReader sdr1 = cmd.ExecuteReader();
+            string tenSach = cmbTenSachMuon.Text;
+
+            busMT.mo();
+            SqlDataReader sdr1 = busMT.maSachMuon(tenSach).ExecuteReader();
 
             
 
@@ -144,32 +136,53 @@ namespace library_management_OOP_10
                 //int a = 5;
             }
             sdr1.Close();
-            conn.Close();
+            busMT.tat();
 
-            if (txtMSSVMuonSach.Text != "" && dateTimePicker1.Text != "" && txtNgayHenTraSach.Text != "" && cmbTenSachMuon.Text != "" && txtThuThu.Text != "" )
+            if (txtMSSVMuonSach.Text != "" && txtNgayMuon.Text != "" && txtNgayHenTraSach.Text != "" && cmbTenSachMuon.Text != "" && txtThuThu.Text != "" )
 
             {
                 string A = GlobalVar.globalMaTT;
                 string Mssv = txtMSSVMuonSach.Text;
-                string ngayMuon = dateTimePicker1.Text;
+                string ngayMuon = txtNgayMuon.Text;
                 string ngayHenTra = txtNgayHenTraSach.Text;
                 Int64 maSach1 = maSach;
                 string  maThuThu = A;
+                string statusmoney = "1";
 
-
+                int SLSachMuon = 0;
+                int SLSach = 0;
                 //tenSach = cmbTenSachMuon.Text;
-                SqlConnection conn1 = new SqlConnection();
-                conn1.ConnectionString = "data source = '" + GlobalVar.GlobalDomain + "' ; database= '" + GlobalVar.globalDataBase + "'; integrated security=True"; //lib_Management là tên database
-                SqlCommand cmd1= new SqlCommand();
-                cmd1.Connection = conn1;
-                conn1.Open();
-                cmd1.CommandText = "insert into tbl_Muon (Mssv,ngayMuon,ngayHenTra,maSach,maTT) values " +
-                    "('" + Mssv + "','" + ngayMuon + "','" + ngayHenTra + "', " + maSach1 + ",'" + maThuThu + "')";
-                cmd1.ExecuteNonQuery();
-                conn1.Close();
+                DTOMuonTraSach MT = new DTOMuonTraSach(Mssv, (int)maSach1, maThuThu, ngayMuon, ngayHenTra, statusmoney);
+                busMT.mo();
+                SqlDataReader sdr = busMT.SlSachMuon((int)maSach1).ExecuteReader();
 
-                MessageBox.Show("Mượn mới thành công", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txtNgayHenTraSach.Clear();
+
+                while (sdr.Read())
+                {
+                    SLSachMuon = (int)sdr["SlSachMuon"];
+
+                }
+                sdr.Close();
+                busMT.tat();
+
+
+                
+
+                string a = busMT.SlSach((int)maSach1).Tables[0].Rows[0][6].ToString();
+                SLSach = (int)Int64.Parse(a);
+
+                if (SLSachMuon < SLSach)
+                {
+                    busMT.themSachMuon(MT);
+
+                    MessageBox.Show("Mượn mới thành công", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    txtNgayHenTraSach.Clear();
+                }
+                else
+                {
+                    MessageBox.Show("Sách đã được mượn hết", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                
             }
 
             else

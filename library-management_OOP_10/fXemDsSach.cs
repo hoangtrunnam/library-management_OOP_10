@@ -92,7 +92,7 @@ namespace library_management_OOP_10
                 Int64 soLuong = Int64.Parse(txtSoLuong.Text);
                 string keSach = txtKeSach.Text;
 
-                DTOThemMoiSach s = new DTOThemMoiSach(tenSach, tenTacGia, nhaXuatBan, ngayMuaSach, giaSach, soLuong, keSach, (int)bookId);
+                DTOThemMoiSach s = new DTOThemMoiSach(tenSach, tenTacGia, nhaXuatBan, ngayMuaSach, giaSach, (int)soLuong, keSach, (int)bookId);
                
                 if (busS.suaSach(s))
                 {

@@ -8,11 +8,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DTO;
+using BUS;
+using System.Globalization;
 
 namespace library_management_OOP_10
 {
     public partial class fTraSach : Form
     {
+        BUSMuonTraSach busmt = new BUSMuonTraSach();
         public fTraSach()
         {
             InitializeComponent();
@@ -26,32 +30,14 @@ namespace library_management_OOP_10
         private void btnTimKiemTraSach_Click(object sender, EventArgs e)
         {
             if (txtMssvTraSach.Text != "")
-            {
-                SqlConnection conn = new SqlConnection();
-                conn.ConnectionString = "data source = '" + GlobalVar.GlobalDomain + "' ; database= '" + GlobalVar.globalDataBase + "'; integrated security=True"; //lib_Management là tên database
-                SqlCommand cmd = new SqlCommand();
-                cmd.Connection = conn;
-
-                cmd.CommandText = "select * from tbl_Muon where Mssv ='" + txtMssvTraSach.Text + "'";
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                DataSet ds = new DataSet();
-                da.Fill(ds);
-
-                subFormTraSach.DataSource = ds.Tables[0];
+            {                
+                subFormTraSach.DataSource = busmt.getDSSachMuonSV(txtMssvTraSach.Text).Tables[0];
             }
             else
             {
-                SqlConnection conn = new SqlConnection();
-                conn.ConnectionString = "data source = '" + GlobalVar.GlobalDomain + "' ; database= '" + GlobalVar.globalDataBase + "'; integrated security=True"; //lib_Management là tên database
-                SqlCommand cmd = new SqlCommand();
-                cmd.Connection = conn;
+                
 
-                cmd.CommandText = "select * from tbl_Muon";
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                DataSet ds = new DataSet();
-                da.Fill(ds);
-
-                subFormTraSach.DataSource = ds.Tables[0];
+                subFormTraSach.DataSource = busmt.getDSSachMuon().Tables[0];
             }
         }
 
@@ -67,25 +53,68 @@ namespace library_management_OOP_10
                 // MessageBox.Show(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
             }
             panelTraSach.Visible = true;
-            SqlConnection conn = new SqlConnection();
-            conn.ConnectionString = "data source = '" + GlobalVar.GlobalDomain + "' ; database= '" + GlobalVar.globalDataBase + "'; integrated security=True"; //lib_Management là tên database
-            SqlCommand cmd = new SqlCommand();
-            cmd.Connection = conn;
 
-            cmd.CommandText = "select * from tbl_Muon where tbl_Muon.maMuon  = " + maMuon + "";
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            DataSet ds = new DataSet();
-            da.Fill(ds);
+            string ngayTraSach = busmt.getDSSachMuoMM((int)maMuon).Tables[0].Rows[0][6].ToString();
+
+            string ngayHen = busmt.getDSSachMuoMM((int)maMuon).Tables[0].Rows[0][5].ToString(); 
+            if (ngayTraSach == "")
+            {
+                DateTime dt = DateTime.Now;
+                string ketqua = dt.ToString("dd/MM/yyyy");
+                txtNgayTra.Text = ketqua;
+
+               
+                DateTime ngayhen = DateTime.ParseExact(ngayHen, "dd/MM/yyyy", CultureInfo.InvariantCulture);
 
 
-            txtNgayHen.Text = ds.Tables[0].Rows[0][5].ToString();
-            txtNgayMuon.Text = ds.Tables[0].Rows[0][4].ToString();
-            txtMaSachTra.Text = ds.Tables[0].Rows[0][2].ToString();
+                TimeSpan Time = dt - ngayhen;
+                int TongSoNgay = Time.Days;
+
+                if(TongSoNgay > 0)
+                {
+                    int tienPhat = TongSoNgay * 1000;
+                    txtNgayQuaHan.Text = TongSoNgay.ToString();
+                    txtTienPhat.Text = tienPhat.ToString();
+                }
+                else
+                {
+                    txtNgayQuaHan.Text = "0";
+                    txtTienPhat.Text = "0";
+
+                }
+                //DateTime dt1 = DateTime.Parse(ketqua);
+                //txtNgayQuaHan.Text = dt1.ToString("dd/MM/yyyy");
+            }
+            else
+            {
+                txtNgayTra.Text = ngayTraSach;
+
+                DateTime ngayhen = DateTime.ParseExact(ngayHen, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+                DateTime ngaytra = DateTime.ParseExact(ngayTraSach, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+                TimeSpan Time = ngaytra - ngayhen;
+                int TongSoNgay = Time.Days;
+                if (TongSoNgay > 0)
+                {
+                    int tienPhat = TongSoNgay * 1000;
+                    txtNgayQuaHan.Text = TongSoNgay.ToString();
+                    txtTienPhat.Text = tienPhat.ToString();
+                }
+                else
+                {
+                    txtNgayQuaHan.Text = "0";
+                    txtTienPhat.Text = "0";
+
+                }
+
+            }
+
+            txtNgayHen.Text =ngayHen;
+            txtNgayMuon.Text = busmt.getDSSachMuoMM((int)maMuon).Tables[0].Rows[0][4].ToString();
+            txtMaSachTra.Text = busmt.getDSSachMuoMM((int)maMuon).Tables[0].Rows[0][2].ToString();
             maSach = Int64.Parse(txtMaSachTra.Text);
 
-            conn.Open();
-            cmd = new SqlCommand("select tenSach from tbl_Sach where  maSach = " + maSach , conn);
-            SqlDataReader sdr = cmd.ExecuteReader();
+            busmt.mo();
+            SqlDataReader sdr = busmt.temSachMuon((int)maSach).ExecuteReader();
 
             while (sdr.Read())
             {
@@ -94,15 +123,12 @@ namespace library_management_OOP_10
                 //int a = 5;
             }
             sdr.Close();
-            conn.Close();
+            busmt.tat();
         }
         string maTT;
         private void btnTraSach_Click(object sender, EventArgs e)
         {
-            SqlConnection conn1 = new SqlConnection();
-            conn1.ConnectionString = "data source = '" + GlobalVar.GlobalDomain + "' ;database= '" + GlobalVar.globalDataBase + "'; integrated security=True"; //lib_Management là tên database
-            SqlCommand cmd1 = new SqlCommand();
-            cmd1.Connection = conn1;
+            
            
 
             if (txtNgayTra.Text != "" && maTT != "" )
@@ -111,57 +137,40 @@ namespace library_management_OOP_10
                 string maTT = GlobalVar.globalMaTT;
                 Int64 maMuon1 = maMuon;
                 string ngayTra = txtNgayTra.Text;
-              
-               
+                string ngayQuaHan = txtNgayQuaHan.Text;
+                string tienPhat = txtTienPhat.Text;
+
+
 
 
                 //tenSach = cmbTenSachMuon.Text;
-               
-                conn1.Open();
-                cmd1.CommandText = "insert into tbl_Tra (maMuon,ngayTra,maTT) values " +
-                    "(" + maMuon1 + ",'" + ngayTra + "','" + maTT + "')";
-                cmd1.ExecuteNonQuery();
-                conn1.Close();
 
+
+                DTOMuonTraSach A = new DTOMuonTraSach((int)maMuon1, ngayTra, ngayQuaHan, tienPhat);
+                busmt.traSach(A);
+                if(txtNgayQuaHan.Text == "0")
+                {
+                    DTOMuonTraSach B = new DTOMuonTraSach((int)maMuon1, "0");
+                    busmt.updateStatusmoney(B);
+                    
+                }
                 MessageBox.Show("Trả sách thành công", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                conn1.Open();
-                cmd1.CommandText = "DELETE  FROM tbl_Muon WHERE maMuon = "+maMuon1 ;
-                cmd1.ExecuteNonQuery();
-                conn1.Close();
-
+                
                 if (txtMssvTraSach.Text != "")
                 {
-                    SqlConnection conn = new SqlConnection();
-                    conn.ConnectionString = "data source = '" + GlobalVar.GlobalDomain + "' ; database= '" + GlobalVar.globalDataBase + "'; integrated security=True"; //lib_Management là tên database
-                    SqlCommand cmd = new SqlCommand();
-                    cmd.Connection = conn;
-
-                    cmd.CommandText = "select * from tbl_Muon where Mssv ='" + txtMssvTraSach.Text + "'";
-                    SqlDataAdapter da = new SqlDataAdapter(cmd);
-                    DataSet ds = new DataSet();
-                    da.Fill(ds);
-
-                    subFormTraSach.DataSource = ds.Tables[0];
+                    subFormTraSach.DataSource = busmt.getDSSachMuonSV(txtMssvTraSach.Text).Tables[0];
                 }
                 else
                 {
-                    SqlConnection conn = new SqlConnection();
-                    conn.ConnectionString = "data source = '" + GlobalVar.GlobalDomain + "' ; database= '" + GlobalVar.globalDataBase + "'; integrated security=True"; //lib_Management là tên database
-                    SqlCommand cmd = new SqlCommand();
-                    cmd.Connection = conn;
-
-                    cmd.CommandText = "select * from tbl_Muon";
-                    SqlDataAdapter da = new SqlDataAdapter(cmd);
-                    DataSet ds = new DataSet();
-                    da.Fill(ds);
-
-                    subFormTraSach.DataSource = ds.Tables[0];
+                    subFormTraSach.DataSource = busmt.getDSSachMuon().Tables[0];
                 }
 
                 txtNgayHen.Clear();
                 txtNgayMuon.Clear();
                 txtMaSachTra.Clear();
                 txtTenSach.Clear();
+                txtTienPhat.Clear();
+                txtNgayQuaHan.Clear();
 
             }
 
@@ -178,8 +187,9 @@ namespace library_management_OOP_10
             txtNgayHen.Clear();
             txtNgayMuon.Clear();
             txtMaSachTra.Clear();
-            txtMssvTraSach.Clear();
             txtTenSach.Clear();
+            txtTienPhat.Clear();
+            txtNgayQuaHan.Clear();
         }
 
         private void btnLamMoiThoat_Click(object sender, EventArgs e)
@@ -201,6 +211,8 @@ namespace library_management_OOP_10
             txtNgayMuon.Clear();
             txtMaSachTra.Clear();
             txtTenSach.Clear();
+            txtTienPhat.Clear();
+            txtNgayQuaHan.Clear();
         }
         private void fTraSach_Load(object sender, EventArgs e)
         {
@@ -210,6 +222,39 @@ namespace library_management_OOP_10
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtNgayTra_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnDongPhat_Click(object sender, EventArgs e)
+        {
+            Int64 maMuon1 = maMuon;
+            DTOMuonTraSach B = new DTOMuonTraSach((int)maMuon1, "0");
+            busmt.updateStatusmoney(B);
+            MessageBox.Show("Dóng phạt thành công", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if (txtMssvTraSach.Text != "")
+            {
+                subFormTraSach.DataSource = busmt.getDSSachMuonSV(txtMssvTraSach.Text).Tables[0];
+            }
+            else
+            {
+                subFormTraSach.DataSource = busmt.getDSSachMuon().Tables[0];
+            }
+
+            txtNgayHen.Clear();
+            txtNgayMuon.Clear();
+            txtMaSachTra.Clear();
+            txtTenSach.Clear();
+            txtTienPhat.Clear();
+            txtNgayQuaHan.Clear();
         }
     }
 }
