@@ -45,7 +45,6 @@ namespace library_management_OOP_10
             this.label13 = new System.Windows.Forms.Label();
             this.btnMuonSach = new System.Windows.Forms.Button();
             this.txtNgayHenTraSach = new System.Windows.Forms.TextBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.cmbTenSachMuon = new System.Windows.Forms.ComboBox();
             this.txtSDTMuonSach = new System.Windows.Forms.TextBox();
             this.txtKhoaMuonSach = new System.Windows.Forms.TextBox();
@@ -63,6 +62,7 @@ namespace library_management_OOP_10
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.txtNgayMuon = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -180,11 +180,11 @@ namespace library_management_OOP_10
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.panel3.Controls.Add(this.txtNgayMuon);
             this.panel3.Controls.Add(this.txtGTMuonSach);
             this.panel3.Controls.Add(this.label13);
             this.panel3.Controls.Add(this.btnMuonSach);
             this.panel3.Controls.Add(this.txtNgayHenTraSach);
-            this.panel3.Controls.Add(this.dateTimePicker1);
             this.panel3.Controls.Add(this.cmbTenSachMuon);
             this.panel3.Controls.Add(this.txtSDTMuonSach);
             this.panel3.Controls.Add(this.txtKhoaMuonSach);
@@ -242,14 +242,6 @@ namespace library_management_OOP_10
             this.txtNgayHenTraSach.Name = "txtNgayHenTraSach";
             this.txtNgayHenTraSach.Size = new System.Drawing.Size(214, 20);
             this.txtNgayHenTraSach.TabIndex = 18;
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(179, 310);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(214, 20);
-            this.dateTimePicker1.TabIndex = 17;
-            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // cmbTenSachMuon
             // 
@@ -404,6 +396,13 @@ namespace library_management_OOP_10
             this.label3.TabIndex = 0;
             this.label3.Text = "Thủ Thư";
             // 
+            // txtNgayMuon
+            // 
+            this.txtNgayMuon.Location = new System.Drawing.Point(179, 310);
+            this.txtNgayMuon.Name = "txtNgayMuon";
+            this.txtNgayMuon.Size = new System.Drawing.Size(214, 20);
+            this.txtNgayMuon.TabIndex = 22;
+            // 
             // fMuonSach
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -453,7 +452,6 @@ namespace library_management_OOP_10
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnMuonSach;
         private System.Windows.Forms.TextBox txtNgayHenTraSach;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.ComboBox cmbTenSachMuon;
         private System.Windows.Forms.TextBox txtSDTMuonSach;
         private System.Windows.Forms.TextBox txtKhoaMuonSach;
@@ -465,5 +463,6 @@ namespace library_management_OOP_10
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txtGTMuonSach;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox txtNgayMuon;
     }
 }

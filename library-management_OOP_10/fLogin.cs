@@ -29,7 +29,7 @@ namespace library_management_OOP_10
 
         private void txtTenDangNhap_MouseEnter(object sender, EventArgs e)
         {
-            if(txtTenDangNhap.Text =="Tên đăng nhập")
+            if (txtTenDangNhap.Text == "Tên đăng nhập")
             {
                 txtTenDangNhap.Clear();
             }
@@ -43,28 +43,28 @@ namespace library_management_OOP_10
 
         private void txtMatKhau_MouseEnter(object sender, EventArgs e)
         {
-            if( txtMatKhau.Text =="Mật khẩu")
+            if (txtMatKhau.Text == "Mật khẩu")
             {
                 txtMatKhau.Clear();
                 txtMatKhau.PasswordChar = '*';
             }
         }
 
-      
+
 
         private void btnDangKi_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            
+
             // bắt sự kiện đang chưa đúng ý
             if (txtTenDangNhap.Text != "" && txtMatKhau.Text != "")
             {
                 // Tạo DTo
-                DTOCheckLogin login = new DTOCheckLogin(txtTenDangNhap.Text, txtMatKhau.Text); 
+                DTOCheckLogin login = new DTOCheckLogin(txtTenDangNhap.Text, txtMatKhau.Text);
 
                 // Them
                 if (busLogin.login(login))
