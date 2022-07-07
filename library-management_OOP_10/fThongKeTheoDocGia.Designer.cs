@@ -94,6 +94,7 @@ namespace library_management_OOP_10
             this.txtMSSVThongKe.Name = "txtMSSVThongKe";
             this.txtMSSVThongKe.Size = new System.Drawing.Size(191, 22);
             this.txtMSSVThongKe.TabIndex = 2;
+            this.txtMSSVThongKe.Text = "dd/mm/yyyy";
             // 
             // label1
             // 
