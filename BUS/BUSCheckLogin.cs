@@ -5,14 +5,25 @@ using System.Text;
 using System.Threading.Tasks;
 using DTO;
 using DAL;
+using System.Data;
+
 namespace BUS
 {
     public class BUSCheckLogin
     {
         DALCheckLogin checkLogin = new DALCheckLogin();
-        public bool login(DTOCheckLogin login)
+        public DataSet login(DTOCheckLogin login)
         {
             return checkLogin.login(login);
+        }
+        public void mo()
+        {
+           
+        }
+
+        public void tat()
+        {
+            
         }
 
     }

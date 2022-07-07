@@ -11,12 +11,21 @@ namespace DAL
 {
     public class DALCheckLogin : DBConnect
     {
-        public bool login(DTOCheckLogin login)
+        public void mo()
         {
-            try
-            {
+            _conn.Open();
+        }
+
+        public void tat()
+        {
+            _conn.Close();
+        }
+        public DataSet login(DTOCheckLogin login)
+        {
+            
+            
                 // Ket noi
-                _conn.Open();
+                //_conn.Open();
 
                 // Query string kiểm tra giá trị truyền từ GUI truyền xuống xem có giống ở db ko
                 SqlCommand cmd = new SqlCommand();
@@ -26,22 +35,10 @@ namespace DAL
                 DataSet ds = new DataSet();
                 da.Fill(ds);
 
+                return ds;
+                
+            
 
-                if (ds.Tables[0].Rows.Count > 0)
-                {
-                    return true;
-                }
-            }
-            catch (Exception e)
-            {
-                throw new Exception(e.Message);
-            }
-            finally
-            {
-                _conn.Close();
-            }
-
-            return false;
         }
     }
 }
