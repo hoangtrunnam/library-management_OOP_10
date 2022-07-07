@@ -52,15 +52,15 @@
             this.btnThoat});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(1089, 58);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(817, 58);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // quảnLýĐộcGiảToolStripMenuItem
             // 
             this.quảnLýĐộcGiảToolStripMenuItem.Name = "quảnLýĐộcGiảToolStripMenuItem";
-            this.quảnLýĐộcGiảToolStripMenuItem.Size = new System.Drawing.Size(14, 54);
+            this.quảnLýĐộcGiảToolStripMenuItem.Size = new System.Drawing.Size(12, 54);
             // 
             // quảnLýĐộcGiảToolStripMenuItem1
             // 
@@ -71,7 +71,7 @@
             this.quảnLýĐộcGiảToolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("quảnLýĐộcGiảToolStripMenuItem1.Image")));
             this.quảnLýĐộcGiảToolStripMenuItem1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.quảnLýĐộcGiảToolStripMenuItem1.Name = "quảnLýĐộcGiảToolStripMenuItem1";
-            this.quảnLýĐộcGiảToolStripMenuItem1.Size = new System.Drawing.Size(174, 54);
+            this.quảnLýĐộcGiảToolStripMenuItem1.Size = new System.Drawing.Size(152, 54);
             this.quảnLýĐộcGiảToolStripMenuItem1.Text = "Quản lý thủ thư";
             this.quảnLýĐộcGiảToolStripMenuItem1.Click += new System.EventHandler(this.quảnLýĐộcGiảToolStripMenuItem1_Click);
             // 
@@ -80,16 +80,18 @@
             this.btnThemMoiDocGia.Image = ((System.Drawing.Image)(resources.GetObject("btnThemMoiDocGia.Image")));
             this.btnThemMoiDocGia.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnThemMoiDocGia.Name = "btnThemMoiDocGia";
-            this.btnThemMoiDocGia.Size = new System.Drawing.Size(240, 56);
+            this.btnThemMoiDocGia.Size = new System.Drawing.Size(204, 56);
             this.btnThemMoiDocGia.Text = "Thêm mới thủ thư";
+            this.btnThemMoiDocGia.Click += new System.EventHandler(this.btnThemMoiDocGia_Click);
             // 
             // btnXemDanhSachDocGia
             // 
             this.btnXemDanhSachDocGia.Image = ((System.Drawing.Image)(resources.GetObject("btnXemDanhSachDocGia.Image")));
             this.btnXemDanhSachDocGia.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnXemDanhSachDocGia.Name = "btnXemDanhSachDocGia";
-            this.btnXemDanhSachDocGia.Size = new System.Drawing.Size(240, 56);
+            this.btnXemDanhSachDocGia.Size = new System.Drawing.Size(204, 56);
             this.btnXemDanhSachDocGia.Text = "Xem danh sách ";
+            this.btnXemDanhSachDocGia.Click += new System.EventHandler(this.btnXemDanhSachDocGia_Click);
             // 
             // btnChiTietMuonTra
             // 
@@ -99,7 +101,7 @@
             this.xemDanhSáchToolStripMenuItem});
             this.btnChiTietMuonTra.Image = ((System.Drawing.Image)(resources.GetObject("btnChiTietMuonTra.Image")));
             this.btnChiTietMuonTra.Name = "btnChiTietMuonTra";
-            this.btnChiTietMuonTra.Size = new System.Drawing.Size(158, 54);
+            this.btnChiTietMuonTra.Size = new System.Drawing.Size(132, 54);
             this.btnChiTietMuonTra.Text = "Quản lý tài khoản";
             // 
             // thêmTàiKhoảnToolStripMenuItem
@@ -108,9 +110,10 @@
             this.thêmTàiKhoảnToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("thêmTàiKhoảnToolStripMenuItem.Image")));
             this.thêmTàiKhoảnToolStripMenuItem.Name = "thêmTàiKhoảnToolStripMenuItem";
             this.thêmTàiKhoảnToolStripMenuItem.Padding = new System.Windows.Forms.Padding(0, 15, 0, 15);
-            this.thêmTàiKhoảnToolStripMenuItem.Size = new System.Drawing.Size(194, 54);
+            this.thêmTàiKhoảnToolStripMenuItem.Size = new System.Drawing.Size(184, 54);
             this.thêmTàiKhoảnToolStripMenuItem.Text = "Thêm tài khoản";
             this.thêmTàiKhoảnToolStripMenuItem.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
+            this.thêmTàiKhoảnToolStripMenuItem.Click += new System.EventHandler(this.thêmTàiKhoảnToolStripMenuItem_Click);
             // 
             // xemDanhSáchToolStripMenuItem
             // 
@@ -118,8 +121,9 @@
             this.xemDanhSáchToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("xemDanhSáchToolStripMenuItem.Image")));
             this.xemDanhSáchToolStripMenuItem.Name = "xemDanhSáchToolStripMenuItem";
             this.xemDanhSáchToolStripMenuItem.Padding = new System.Windows.Forms.Padding(0, 15, 0, 15);
-            this.xemDanhSáchToolStripMenuItem.Size = new System.Drawing.Size(194, 54);
+            this.xemDanhSáchToolStripMenuItem.Size = new System.Drawing.Size(184, 54);
             this.xemDanhSáchToolStripMenuItem.Text = "Xem danh sách";
+            this.xemDanhSáchToolStripMenuItem.Click += new System.EventHandler(this.xemDanhSáchToolStripMenuItem_Click);
             // 
             // btnThoat
             // 
@@ -127,19 +131,20 @@
             this.btnThoat.Image = ((System.Drawing.Image)(resources.GetObject("btnThoat.Image")));
             this.btnThoat.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnThoat.Name = "btnThoat";
-            this.btnThoat.Size = new System.Drawing.Size(111, 54);
+            this.btnThoat.Size = new System.Drawing.Size(99, 54);
             this.btnThoat.Text = "Thoát";
             this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
             // fAdmin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1089, 528);
+            this.ClientSize = new System.Drawing.Size(817, 429);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "fAdmin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "fAdmin";

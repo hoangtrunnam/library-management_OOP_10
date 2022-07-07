@@ -36,5 +36,29 @@ namespace library_management_OOP_10
                 f.ShowDialog();
             }
         }
+
+        private void btnThemMoiDocGia_Click(object sender, EventArgs e)
+        {
+            fThemMoiThuThu mtt = new fThemMoiThuThu();
+            mtt.Show();
+        }
+
+        private void btnXemDanhSachDocGia_Click(object sender, EventArgs e)
+        {
+            fHienThuThu htt = new fHienThuThu();
+            htt.Show();
+        }
+
+        private void thêmTàiKhoảnToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            fThenAuthen faut = new fThenAuthen();
+            faut.Show();
+        }
+
+        private void xemDanhSáchToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            fHienAuthen haut = new fHienAuthen();
+            haut.Show();
+        }
     }
 }

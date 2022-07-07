@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 using DTO;
 namespace DAL
 {
-    public class DALThuThu : DBConnect
+    public class DALAuthen : DBConnect
     {
-        public bool themThuThu(DTOThuThu TT)
+        public bool themAuthen(DTOAuthen aut)
         {
             try
             {
@@ -18,7 +18,7 @@ namespace DAL
                 _conn.Open();
 
                 // Query string - vì mình để TV_ID là identity (giá trị tự tăng dần) nên ko cần fải insert ID
-                string SQL = string.Format("INSERT INTO tbl_thuThu(matt, hoTennv, sdt,cccd,diachi) VALUES ('{0}', N'{1}', {2},'{3}',N'{4}')", TT.matt,TT.hotennv,TT.sdt,TT.cccd,TT.diachi);
+                string SQL = string.Format("INSERT INTO authen (matt, matkhau, phanquyen) VALUES ('{0}', '{1}', '{2}')", aut.matt,aut.matkhau,aut.phanquyen);
 
                 // Command (mặc định command type = text nên chúng ta khỏi fải làm gì nhiều).
                 SqlCommand cmd = new SqlCommand(SQL, _conn);
@@ -41,7 +41,7 @@ namespace DAL
             return false;
         }
 
-        public bool suaThuThu(DTOThuThu tt)
+        public bool suaAuthen(DTOAuthen aut)
         {
             try
             {
@@ -49,7 +49,7 @@ namespace DAL
                 _conn.Open();
 
                 // Query string
-                string SQL = string.Format("UPDATE tbl_thuThu SET hoTennv = N'{1}', sdt = {2},cccd = '{3}',diachi = N'{4}' WHERE Matt = '{0}'", tt.matt,tt.hotennv,tt.sdt,tt.cccd,tt.diachi);
+                string SQL = string.Format("UPDATE authen  SET Matkhau = '{1}', phanquyen = '{2}' WHERE Matt = '{0}'",aut.matt, aut.matkhau,aut.phanquyen);
 
                 // Command (mặc định command type = text nên chúng ta khỏi fải làm gì nhiều).
                 SqlCommand cmd = new SqlCommand(SQL, _conn);
@@ -74,7 +74,7 @@ namespace DAL
 
 
 
-        public bool xoaThuThu(string mtt)
+        public bool xoaAuthen(string mtt)
         {
             try
             {
@@ -82,7 +82,7 @@ namespace DAL
                 _conn.Open();
 
                 // Query string - vì xóa chỉ cần ID nên chúng ta ko cần 1 DTO, ID là đủ
-                string SQL = string.Format("delete from tbl_thuThu where Matt = N'" + mtt+ "'");
+                string SQL = string.Format("delete from authen  where Matt = N'" + mtt + "'");
 
                 // Command (mặc định command type = text nên chúng ta khỏi fải làm gì nhiều).
                 SqlCommand cmd = new SqlCommand(SQL, _conn);
@@ -105,30 +105,31 @@ namespace DAL
             return false;
         }
 
-        public DataTable getThuThu()
+        public DataTable getAuthen()
         {
-            SqlDataAdapter da = new SqlDataAdapter("select * from tbl_thuThu", _conn);
+            SqlDataAdapter da = new SqlDataAdapter("select * from authen ", _conn);
             DataTable dtThanhvien = new DataTable();
             da.Fill(dtThanhvien);
             return dtThanhvien;
         }
 
-        public DataTable getThuThu( string matt)
+        public DataTable getAuthen(string matt)
         {
-            SqlDataAdapter da = new SqlDataAdapter("select * from tbl_thuThu where matt = '" + matt + "'", _conn);
+            SqlDataAdapter da = new SqlDataAdapter("select * from authen  where matt = '" + matt + "'", _conn);
             DataTable dtThanhvien = new DataTable();
             da.Fill(dtThanhvien);
             return dtThanhvien;
         }
 
-        public DataTable timThuThu(string tentt)
+        public DataTable timAuthen(string matt)
         {
 
-            SqlDataAdapter da = new SqlDataAdapter("select * from tbl_thuThu where hoTenNV LIKE N'" + tentt + "%'", _conn);
+            SqlDataAdapter da = new SqlDataAdapter("select * from authen where matt LIKE N'" + matt + "%'", _conn);
             DataTable dtThanhvien = new DataTable();
             da.Fill(dtThanhvien);
             return dtThanhvien;
 
         }
+
     }
 }

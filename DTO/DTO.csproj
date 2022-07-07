@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DTOAuthen.cs" />
     <Compile Include="DTOCheckLogin.cs" />
     <Compile Include="DTOThemDocGia.cs" />
     <Compile Include="DTOThemMoiSach.cs" />

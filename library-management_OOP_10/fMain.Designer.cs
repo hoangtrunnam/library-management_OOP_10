@@ -41,6 +41,7 @@
             this.btnTraSach = new System.Windows.Forms.ToolStripMenuItem();
             this.btnChiTietMuonTra = new System.Windows.Forms.ToolStripMenuItem();
             this.btnThoat = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnThongKeTheoDocGia = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -79,7 +80,7 @@
             this.btnAddNewBook.Image = ((System.Drawing.Image)(resources.GetObject("btnAddNewBook.Image")));
             this.btnAddNewBook.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnAddNewBook.Name = "btnAddNewBook";
-            this.btnAddNewBook.Size = new System.Drawing.Size(192, 56);
+            this.btnAddNewBook.Size = new System.Drawing.Size(214, 56);
             this.btnAddNewBook.Text = "Thêm sách mới";
             this.btnAddNewBook.Click += new System.EventHandler(this.btnAddNewBook_Click);
             // 
@@ -88,7 +89,7 @@
             this.btnXemDanhSach.Image = ((System.Drawing.Image)(resources.GetObject("btnXemDanhSach.Image")));
             this.btnXemDanhSach.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnXemDanhSach.Name = "btnXemDanhSach";
-            this.btnXemDanhSach.Size = new System.Drawing.Size(192, 56);
+            this.btnXemDanhSach.Size = new System.Drawing.Size(214, 56);
             this.btnXemDanhSach.Text = "Xem danh sách ";
             this.btnXemDanhSach.Click += new System.EventHandler(this.btnXemDanhSach_Click);
             // 
@@ -148,6 +149,8 @@
             // 
             // btnChiTietMuonTra
             // 
+            this.btnChiTietMuonTra.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnThongKeTheoDocGia});
             this.btnChiTietMuonTra.Image = ((System.Drawing.Image)(resources.GetObject("btnChiTietMuonTra.Image")));
             this.btnChiTietMuonTra.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnChiTietMuonTra.Name = "btnChiTietMuonTra";
@@ -165,6 +168,15 @@
             this.btnThoat.Text = "Thoát";
             this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
+            // btnThongKeTheoDocGia
+            // 
+            this.btnThongKeTheoDocGia.Image = ((System.Drawing.Image)(resources.GetObject("btnThongKeTheoDocGia.Image")));
+            this.btnThongKeTheoDocGia.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.btnThongKeTheoDocGia.Name = "btnThongKeTheoDocGia";
+            this.btnThongKeTheoDocGia.Size = new System.Drawing.Size(231, 56);
+            this.btnThongKeTheoDocGia.Text = "Thống Kê Theo Độc Giả";
+            this.btnThongKeTheoDocGia.Click += new System.EventHandler(this.btnThongKeTheoDocGia_Click);
+            // 
             // fMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -175,7 +187,7 @@
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "fMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Main";
@@ -201,5 +213,6 @@
         private System.Windows.Forms.ToolStripMenuItem quảnLýĐộcGiảToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem btnThemMoiDocGia;
         private System.Windows.Forms.ToolStripMenuItem btnXemDanhSachDocGia;
+        private System.Windows.Forms.ToolStripMenuItem btnThongKeTheoDocGia;
     }
 }

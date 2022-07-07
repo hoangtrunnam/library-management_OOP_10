@@ -48,7 +48,7 @@ namespace library_management_OOP_10
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new fThemMoiThuThu());
+            Application.Run(new fLogin());
         }
     }
 }

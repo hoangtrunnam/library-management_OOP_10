@@ -35,6 +35,11 @@ namespace library_management_OOP_10
                 {
                     MessageBox.Show("Thêm thành công");
                     //dgvTV.DataSource = busTV.getThanhVien(); // refresh datagridview
+                    txtDiaChi.Clear();
+                    txtMaThuThu.Clear();
+                    txtCanCuoc.Clear();
+                    txtSDT.Clear();
+                    txtTenThuThu.Clear();
                 }
                 else
                 {
@@ -58,7 +63,7 @@ namespace library_management_OOP_10
 
         private void btnThoat_Click(object sender, EventArgs e)
         {
-            if (txtMaThuThu.Text != "" && txtTenThuThu.Text != "" && txtSDT.Text != "" && txtCanCuoc.Text != "")
+            if (txtMaThuThu.Text != "" || txtTenThuThu.Text != "" || txtSDT.Text != "" || txtCanCuoc.Text != "")
             { 
                 this.Close();
             return;
@@ -68,5 +73,75 @@ namespace library_management_OOP_10
                 this.Close();
     }
 }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void txtSDT_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtDiaChi_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtCanCuoc_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtMaThuThu_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtTenThuThu_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

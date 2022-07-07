@@ -96,6 +96,7 @@ namespace library_management_OOP_10
             this.txtSDT.Name = "txtSDT";
             this.txtSDT.Size = new System.Drawing.Size(199, 20);
             this.txtSDT.TabIndex = 9;
+            this.txtSDT.TextChanged += new System.EventHandler(this.txtSDT_TextChanged);
             // 
             // txtDiaChi
             // 
@@ -103,6 +104,7 @@ namespace library_management_OOP_10
             this.txtDiaChi.Name = "txtDiaChi";
             this.txtDiaChi.Size = new System.Drawing.Size(199, 20);
             this.txtDiaChi.TabIndex = 8;
+            this.txtDiaChi.TextChanged += new System.EventHandler(this.txtDiaChi_TextChanged);
             // 
             // txtCanCuoc
             // 
@@ -110,6 +112,7 @@ namespace library_management_OOP_10
             this.txtCanCuoc.Name = "txtCanCuoc";
             this.txtCanCuoc.Size = new System.Drawing.Size(199, 20);
             this.txtCanCuoc.TabIndex = 7;
+            this.txtCanCuoc.TextChanged += new System.EventHandler(this.txtCanCuoc_TextChanged);
             // 
             // txtMaThuThu
             // 
@@ -117,6 +120,7 @@ namespace library_management_OOP_10
             this.txtMaThuThu.Name = "txtMaThuThu";
             this.txtMaThuThu.Size = new System.Drawing.Size(199, 20);
             this.txtMaThuThu.TabIndex = 6;
+            this.txtMaThuThu.TextChanged += new System.EventHandler(this.txtMaThuThu_TextChanged);
             // 
             // txtTenThuThu
             // 
@@ -124,6 +128,7 @@ namespace library_management_OOP_10
             this.txtTenThuThu.Name = "txtTenThuThu";
             this.txtTenThuThu.Size = new System.Drawing.Size(199, 20);
             this.txtTenThuThu.TabIndex = 5;
+            this.txtTenThuThu.TextChanged += new System.EventHandler(this.txtTenThuThu_TextChanged);
             // 
             // label6
             // 
@@ -134,6 +139,7 @@ namespace library_management_OOP_10
             this.label6.Size = new System.Drawing.Size(109, 20);
             this.label6.TabIndex = 4;
             this.label6.Text = "Số Điện Thoại";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // label5
             // 
@@ -144,6 +150,7 @@ namespace library_management_OOP_10
             this.label5.Size = new System.Drawing.Size(60, 20);
             this.label5.TabIndex = 3;
             this.label5.Text = "Địa Chỉ";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // label4
             // 
@@ -154,6 +161,7 @@ namespace library_management_OOP_10
             this.label4.Size = new System.Drawing.Size(79, 20);
             this.label4.TabIndex = 2;
             this.label4.Text = "Căn Cước";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label3
             // 
@@ -164,6 +172,7 @@ namespace library_management_OOP_10
             this.label3.Size = new System.Drawing.Size(93, 20);
             this.label3.TabIndex = 1;
             this.label3.Text = "Mã Thủ Thư";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label2
             // 
@@ -185,6 +194,7 @@ namespace library_management_OOP_10
             this.label1.Size = new System.Drawing.Size(174, 24);
             this.label1.TabIndex = 2;
             this.label1.Text = "Thêm mới thủ thư";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // pictureBox2
             // 
@@ -195,6 +205,7 @@ namespace library_management_OOP_10
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 1;
             this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // panel2
             // 
@@ -216,6 +227,7 @@ namespace library_management_OOP_10
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(446, 354);
             this.panel2.TabIndex = 5;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // pictureBox1
             // 
@@ -226,6 +238,7 @@ namespace library_management_OOP_10
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // panel1
             // 
@@ -236,6 +249,7 @@ namespace library_management_OOP_10
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(688, 77);
             this.panel1.TabIndex = 3;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // fThemMoiThuThu
             // 
