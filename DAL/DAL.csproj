@@ -41,9 +41,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DALAuthen.cs" />
     <Compile Include="DALCheckLogin.cs" />
     <Compile Include="DALThemDocGia.cs" />
     <Compile Include="DALThemMoiSach.cs" />
+    <Compile Include="DALThongKe.cs" />
+    <Compile Include="DALThuThu.cs" />
     <Compile Include="DBConnect.cs" />
     <Compile Include="DALMuonTraSach.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

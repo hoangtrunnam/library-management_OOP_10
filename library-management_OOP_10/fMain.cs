@@ -74,6 +74,12 @@ namespace library_management_OOP_10
         {
 
         }
+
+        private void btnThongKeTheoDocGia_Click(object sender, EventArgs e)
+        {
+            fThongKeTheoDocGia tDG = new fThongKeTheoDocGia();
+            tDG.Show();
+        }
     }
 }
 

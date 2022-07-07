@@ -31,6 +31,9 @@ namespace library_management_OOP_10
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fTraSach));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnTraTienTong = new System.Windows.Forms.Button();
+            this.txtTongTien = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.btnLamMoiThoat = new System.Windows.Forms.Button();
             this.btnLamMoiTraSach = new System.Windows.Forms.Button();
             this.btnTimKiemTraSach = new System.Windows.Forms.Button();
@@ -39,6 +42,12 @@ namespace library_management_OOP_10
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.subFormTraSach = new System.Windows.Forms.DataGridView();
             this.panelTraSach = new System.Windows.Forms.Panel();
+            this.btnDongPhat = new System.Windows.Forms.Button();
+            this.txtNgayTra = new System.Windows.Forms.TextBox();
+            this.txtTienPhat = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtNgayQuaHan = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.txtNgayHen = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.txtMaSachTra = new System.Windows.Forms.TextBox();
@@ -50,12 +59,6 @@ namespace library_management_OOP_10
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtNgayQuaHan = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.txtTienPhat = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.txtNgayTra = new System.Windows.Forms.TextBox();
-            this.btnDongPhat = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.subFormTraSach)).BeginInit();
@@ -65,6 +68,9 @@ namespace library_management_OOP_10
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
+            this.panel1.Controls.Add(this.btnTraTienTong);
+            this.panel1.Controls.Add(this.txtTongTien);
+            this.panel1.Controls.Add(this.label9);
             this.panel1.Controls.Add(this.btnLamMoiThoat);
             this.panel1.Controls.Add(this.btnLamMoiTraSach);
             this.panel1.Controls.Add(this.btnTimKiemTraSach);
@@ -73,9 +79,40 @@ namespace library_management_OOP_10
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Location = new System.Drawing.Point(0, 1);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(292, 368);
+            this.panel1.Size = new System.Drawing.Size(292, 597);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // btnTraTienTong
+            // 
+            this.btnTraTienTong.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTraTienTong.Location = new System.Drawing.Point(82, 501);
+            this.btnTraTienTong.Name = "btnTraTienTong";
+            this.btnTraTienTong.Size = new System.Drawing.Size(123, 46);
+            this.btnTraTienTong.TabIndex = 12;
+            this.btnTraTienTong.Text = "Đóng Phạt Hết";
+            this.btnTraTienTong.UseVisualStyleBackColor = true;
+            this.btnTraTienTong.Click += new System.EventHandler(this.btnTraTienTong_Click);
+            // 
+            // txtTongTien
+            // 
+            this.txtTongTien.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTongTien.Location = new System.Drawing.Point(45, 443);
+            this.txtTongTien.Name = "txtTongTien";
+            this.txtTongTien.Size = new System.Drawing.Size(191, 22);
+            this.txtTongTien.TabIndex = 11;
+            this.txtTongTien.TextChanged += new System.EventHandler(this.txtTongTien_TextChanged);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(89, 400);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(116, 20);
+            this.label9.TabIndex = 10;
+            this.label9.Text = "Tổng Tiền Phạt";
+            this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
             // btnLamMoiThoat
             // 
@@ -128,6 +165,7 @@ namespace library_management_OOP_10
             this.label1.Size = new System.Drawing.Size(127, 20);
             this.label1.TabIndex = 1;
             this.label1.Text = "Mã Số Sinh Viên";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // pictureBox1
             // 
@@ -138,6 +176,7 @@ namespace library_management_OOP_10
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // subFormTraSach
             // 
@@ -148,6 +187,7 @@ namespace library_management_OOP_10
             this.subFormTraSach.Size = new System.Drawing.Size(719, 368);
             this.subFormTraSach.TabIndex = 1;
             this.subFormTraSach.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.subFormTraSach_CellClick);
+            this.subFormTraSach.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.subFormTraSach_CellContentClick);
             // 
             // panelTraSach
             // 
@@ -173,6 +213,67 @@ namespace library_management_OOP_10
             this.panelTraSach.Name = "panelTraSach";
             this.panelTraSach.Size = new System.Drawing.Size(702, 223);
             this.panelTraSach.TabIndex = 2;
+            this.panelTraSach.Paint += new System.Windows.Forms.PaintEventHandler(this.panelTraSach_Paint);
+            // 
+            // btnDongPhat
+            // 
+            this.btnDongPhat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDongPhat.Location = new System.Drawing.Point(391, 175);
+            this.btnDongPhat.Name = "btnDongPhat";
+            this.btnDongPhat.Size = new System.Drawing.Size(90, 23);
+            this.btnDongPhat.TabIndex = 18;
+            this.btnDongPhat.Text = "Đóng Phạt";
+            this.btnDongPhat.UseVisualStyleBackColor = true;
+            this.btnDongPhat.Click += new System.EventHandler(this.btnDongPhat_Click);
+            // 
+            // txtNgayTra
+            // 
+            this.txtNgayTra.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNgayTra.Location = new System.Drawing.Point(167, 104);
+            this.txtNgayTra.Name = "txtNgayTra";
+            this.txtNgayTra.Size = new System.Drawing.Size(201, 22);
+            this.txtNgayTra.TabIndex = 17;
+            this.txtNgayTra.TextChanged += new System.EventHandler(this.txtNgayTra_TextChanged);
+            // 
+            // txtTienPhat
+            // 
+            this.txtTienPhat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTienPhat.Location = new System.Drawing.Point(492, 102);
+            this.txtTienPhat.Name = "txtTienPhat";
+            this.txtTienPhat.Size = new System.Drawing.Size(201, 22);
+            this.txtTienPhat.TabIndex = 15;
+            this.txtTienPhat.TextChanged += new System.EventHandler(this.txtTienPhat_TextChanged);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(396, 104);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(76, 20);
+            this.label8.TabIndex = 14;
+            this.label8.Text = "Tiền Phạt";
+            this.label8.Click += new System.EventHandler(this.label8_Click);
+            // 
+            // txtNgayQuaHan
+            // 
+            this.txtNgayQuaHan.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNgayQuaHan.Location = new System.Drawing.Point(167, 144);
+            this.txtNgayQuaHan.Name = "txtNgayQuaHan";
+            this.txtNgayQuaHan.Size = new System.Drawing.Size(201, 22);
+            this.txtNgayQuaHan.TabIndex = 13;
+            this.txtNgayQuaHan.TextChanged += new System.EventHandler(this.txtNgayQuaHan_TextChanged);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(38, 144);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(113, 20);
+            this.label7.TabIndex = 12;
+            this.label7.Text = "Ngày Quá Hạn";
+            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // txtNgayHen
             // 
@@ -181,6 +282,7 @@ namespace library_management_OOP_10
             this.txtNgayHen.Name = "txtNgayHen";
             this.txtNgayHen.Size = new System.Drawing.Size(201, 22);
             this.txtNgayHen.TabIndex = 11;
+            this.txtNgayHen.TextChanged += new System.EventHandler(this.txtNgayHen_TextChanged);
             // 
             // label6
             // 
@@ -191,6 +293,7 @@ namespace library_management_OOP_10
             this.label6.Size = new System.Drawing.Size(79, 20);
             this.label6.TabIndex = 10;
             this.label6.Text = "Ngày Hẹn";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // txtMaSachTra
             // 
@@ -199,6 +302,7 @@ namespace library_management_OOP_10
             this.txtMaSachTra.Name = "txtMaSachTra";
             this.txtMaSachTra.Size = new System.Drawing.Size(201, 22);
             this.txtMaSachTra.TabIndex = 9;
+            this.txtMaSachTra.TextChanged += new System.EventHandler(this.txtMaSachTra_TextChanged);
             // 
             // label5
             // 
@@ -209,6 +313,7 @@ namespace library_management_OOP_10
             this.label5.Size = new System.Drawing.Size(72, 20);
             this.label5.TabIndex = 8;
             this.label5.Text = "Mã Sách";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // btnHuyTraSach
             // 
@@ -239,6 +344,7 @@ namespace library_management_OOP_10
             this.txtNgayMuon.Name = "txtNgayMuon";
             this.txtNgayMuon.Size = new System.Drawing.Size(201, 22);
             this.txtNgayMuon.TabIndex = 4;
+            this.txtNgayMuon.TextChanged += new System.EventHandler(this.txtNgayMuon_TextChanged);
             // 
             // txtTenSach
             // 
@@ -247,6 +353,7 @@ namespace library_management_OOP_10
             this.txtTenSach.Name = "txtTenSach";
             this.txtTenSach.Size = new System.Drawing.Size(201, 22);
             this.txtTenSach.TabIndex = 3;
+            this.txtTenSach.TextChanged += new System.EventHandler(this.txtTenSach_TextChanged);
             // 
             // label4
             // 
@@ -257,6 +364,7 @@ namespace library_management_OOP_10
             this.label4.Size = new System.Drawing.Size(76, 20);
             this.label4.TabIndex = 2;
             this.label4.Text = "Ngày Trả ";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label3
             // 
@@ -267,6 +375,7 @@ namespace library_management_OOP_10
             this.label3.Size = new System.Drawing.Size(93, 20);
             this.label3.TabIndex = 1;
             this.label3.Text = "Ngày Mượn ";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label2
             // 
@@ -277,62 +386,7 @@ namespace library_management_OOP_10
             this.label2.Size = new System.Drawing.Size(77, 20);
             this.label2.TabIndex = 0;
             this.label2.Text = "Tên Sách";
-            // 
-            // txtNgayQuaHan
-            // 
-            this.txtNgayQuaHan.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNgayQuaHan.Location = new System.Drawing.Point(167, 144);
-            this.txtNgayQuaHan.Name = "txtNgayQuaHan";
-            this.txtNgayQuaHan.Size = new System.Drawing.Size(201, 22);
-            this.txtNgayQuaHan.TabIndex = 13;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(38, 144);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(113, 20);
-            this.label7.TabIndex = 12;
-            this.label7.Text = "Ngày Quá Hạn";
-            this.label7.Click += new System.EventHandler(this.label7_Click);
-            // 
-            // txtTienPhat
-            // 
-            this.txtTienPhat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTienPhat.Location = new System.Drawing.Point(492, 102);
-            this.txtTienPhat.Name = "txtTienPhat";
-            this.txtTienPhat.Size = new System.Drawing.Size(201, 22);
-            this.txtTienPhat.TabIndex = 15;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(396, 104);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(76, 20);
-            this.label8.TabIndex = 14;
-            this.label8.Text = "Tiền Phạt";
-            // 
-            // txtNgayTra
-            // 
-            this.txtNgayTra.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNgayTra.Location = new System.Drawing.Point(167, 104);
-            this.txtNgayTra.Name = "txtNgayTra";
-            this.txtNgayTra.Size = new System.Drawing.Size(201, 22);
-            this.txtNgayTra.TabIndex = 17;
-            // 
-            // btnDongPhat
-            // 
-            this.btnDongPhat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDongPhat.Location = new System.Drawing.Point(391, 175);
-            this.btnDongPhat.Name = "btnDongPhat";
-            this.btnDongPhat.Size = new System.Drawing.Size(90, 23);
-            this.btnDongPhat.TabIndex = 18;
-            this.btnDongPhat.Text = "Đóng Phạt";
-            this.btnDongPhat.UseVisualStyleBackColor = true;
-            this.btnDongPhat.Click += new System.EventHandler(this.btnDongPhat_Click);
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // fTraSach
             // 
@@ -385,5 +439,8 @@ namespace library_management_OOP_10
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtNgayTra;
         private System.Windows.Forms.Button btnDongPhat;
+        private System.Windows.Forms.Button btnTraTienTong;
+        private System.Windows.Forms.TextBox txtTongTien;
+        private System.Windows.Forms.Label label9;
     }
 }

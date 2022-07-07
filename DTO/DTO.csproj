@@ -43,10 +43,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DTOAuthen.cs" />
     <Compile Include="DTOCheckLogin.cs" />
     <Compile Include="DTOThemDocGia.cs" />
     <Compile Include="DTOThemMoiSach.cs" />
     <Compile Include="DTOMuonTraSach.cs" />
+    <Compile Include="DTOThuThu.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

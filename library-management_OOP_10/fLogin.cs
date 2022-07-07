@@ -59,6 +59,7 @@ namespace library_management_OOP_10
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            busLogin.mo();
 
             // bắt sự kiện đang chưa đúng ý
             if (txtTenDangNhap.Text != "" && txtMatKhau.Text != "")
@@ -67,26 +68,42 @@ namespace library_management_OOP_10
                 DTOCheckLogin login = new DTOCheckLogin(txtTenDangNhap.Text, txtMatKhau.Text);
 
                 // Them
-                if (busLogin.login(login))
+
+                if (busLogin.login(login).Tables[0].Rows.Count == 0)
                 {
-                    GlobalVar.globalMaTT = txtTenDangNhap.Text; // lấy ra mã đăng nhập của thủ thư
-                    fMain f = new fMain();
-                    this.Hide();
-                    f.ShowDialog();
+                    MessageBox.Show("Sai tên đăng nhập hoặc mật khẩu");
+
                 }
                 else
                 {
-                    MessageBox.Show("Sai tên đăng nhập hoặc mật khẩu");
+                    if (busLogin.login(login).Tables[0].Rows[0][2].ToString() == "tt")
+                    {
+                        GlobalVar.globalMaTT = txtTenDangNhap.Text; // lấy ra mã đăng nhập của thủ thư
+                        fMain f = new fMain();
+                        this.Hide();
+                        f.ShowDialog();
+                    }
+                    else if (busLogin.login(login).Tables[0].Rows[0][2].ToString() == "admin")
+                    {
+                        fAdmin f = new fAdmin();
+                        this.Hide();
+                        f.ShowDialog();
+                    }
                 }
             }
             else
             {
                 MessageBox.Show("tên đăng nhập hoặc mật khẩu không được để trống");
             }
-
+            busLogin.tat();
         }
 
         private void fLogin_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtTenDangNhap_TextChanged(object sender, EventArgs e)
         {
 
         }

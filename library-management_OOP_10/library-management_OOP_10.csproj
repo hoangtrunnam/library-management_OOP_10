@@ -52,17 +52,35 @@
     <Compile Include="fAddNewBook.Designer.cs">
       <DependentUpon>fAddNewBook.cs</DependentUpon>
     </Compile>
+    <Compile Include="fAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fAdmin.Designer.cs">
+      <DependentUpon>fAdmin.cs</DependentUpon>
+    </Compile>
     <Compile Include="fCompleteBookDetails.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="fCompleteBookDetails.Designer.cs">
       <DependentUpon>fCompleteBookDetails.cs</DependentUpon>
     </Compile>
+    <Compile Include="fHienAuthen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fHienAuthen.Designer.cs">
+      <DependentUpon>fHienAuthen.cs</DependentUpon>
+    </Compile>
     <Compile Include="fHienDocGia.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="fHienDocGia.Designer.cs">
       <DependentUpon>fHienDocGia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fHienThuThu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fHienThuThu.Designer.cs">
+      <DependentUpon>fHienThuThu.cs</DependentUpon>
     </Compile>
     <Compile Include="fLogin.cs">
       <SubType>Form</SubType>
@@ -88,6 +106,24 @@
     <Compile Include="fThemMoiDocGia.Designer.cs">
       <DependentUpon>fThemMoiDocGia.cs</DependentUpon>
     </Compile>
+    <Compile Include="fThemMoiThuThu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fThemMoiThuThu.Designer.cs">
+      <DependentUpon>fThemMoiThuThu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fThenAuthen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fThenAuthen.Designer.cs">
+      <DependentUpon>fThenAuthen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fThongKeTheoDocGia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fThongKeTheoDocGia.Designer.cs">
+      <DependentUpon>fThongKeTheoDocGia.cs</DependentUpon>
+    </Compile>
     <Compile Include="fTraSach.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,11 +146,20 @@
     <EmbeddedResource Include="fAddNewBook.resx">
       <DependentUpon>fAddNewBook.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="fAdmin.resx">
+      <DependentUpon>fAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fHienAuthen.resx">
+      <DependentUpon>fHienAuthen.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="fHienDocGia.resx">
       <DependentUpon>fHienDocGia.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="fCompleteBookDetails.resx">
       <DependentUpon>fCompleteBookDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fHienThuThu.resx">
+      <DependentUpon>fHienThuThu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="fLogin.resx">
       <DependentUpon>fLogin.cs</DependentUpon>
@@ -127,6 +172,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="fThemMoiDocGia.resx">
       <DependentUpon>fThemMoiDocGia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fThemMoiThuThu.resx">
+      <DependentUpon>fThemMoiThuThu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fThenAuthen.resx">
+      <DependentUpon>fThenAuthen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fThongKeTheoDocGia.resx">
+      <DependentUpon>fThongKeTheoDocGia.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="fTraSach.resx">
       <DependentUpon>fTraSach.cs</DependentUpon>

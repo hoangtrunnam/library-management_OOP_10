@@ -8,11 +8,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BUS;
+using DTO;
 
 namespace library_management_OOP_10
 {
     public partial class fCompleteBookDetails : Form
     {
+        BUSThongKe bustk = new BUSThongKe();
         public fCompleteBookDetails()
         {
             InitializeComponent();
@@ -20,24 +23,67 @@ namespace library_management_OOP_10
 
         private void fCompleteBookDetails_Load(object sender, EventArgs e)
         {
-            SqlConnection conn = new SqlConnection();
-            conn.ConnectionString = "data source = '" + GlobalVar.GlobalDomain + "' ;database= '" + GlobalVar.globalDataBase + "'; integrated security=True"; //lib_Management là tên database
-            SqlCommand cmd = new SqlCommand();
-            cmd.Connection = conn;
+            //Da Muon
+            dataGridView2.DataSource = bustk.DangMuon().Tables[0];
 
-            cmd.CommandText = "select m.maMuon,m.Mssv,sv.hoTenSV,m.maSach,s.tenSach,m.maTT,m.ngayMuon,m.ngayHenTra " +
-                                "from tbl_Muon m, tbl_sinhVien sv, tbl_Sach s " +
-                                "where m.Mssv = sv.Mssv and m.maSach = s.maSach";
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            DataSet ds = new DataSet();
-            da.Fill(ds);
-            dataGridView1.DataSource = ds.Tables[0];
-
-            cmd.CommandText = "select * from tbl_Tra";
-            SqlDataAdapter da1 = new SqlDataAdapter(cmd);
-            DataSet ds1 = new DataSet();
-            da1.Fill(ds1);
-            dataGridView2.DataSource = ds1.Tables[0];
+            //Dang Muon
+            dataGridView1.DataSource = bustk.DaMuon().Tables[0];
         }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+        public void txtTuNgay_AddText(object sender, EventArgs e)
+        {
+            
+        }
+
+        public void txtDenNgay_AddText(object sender, EventArgs e)
+        {
+          
+        }
+
+        
+
+        private void txtTuNgay_MouseEnter(object sender, EventArgs e)
+        {
+            if (txtTuNgay.Text == "dd/mm/yyyy")
+            {
+                txtTuNgay.Clear();
+            }
+        }
+
+        private void txtDenNgay_MouseEnter(object sender, EventArgs e)
+        {
+            if (txtDenNgay.Text == "dd/mm/yyyy")
+            {
+                txtDenNgay.Clear();
+                
+            }
+        }
+
+        private void btnThongKeTheoThang_Click(object sender, EventArgs e)
+        {
+
+            if(bustk.DangMuonTheoThang(txtTuNgay.Text, txtDenNgay.Text).Tables[0] !=null && bustk.DaMuonTheoThang(txtTuNgay.Text, txtDenNgay.Text).Tables[0] != null)
+            {
+
+            //Da Muon
+            dataGridView2.DataSource = bustk.DangMuonTheoThang(txtTuNgay.Text, txtDenNgay.Text).Tables[0];
+
+            //Dang Muon
+            dataGridView1.DataSource = bustk.DaMuonTheoThang(txtTuNgay.Text, txtDenNgay.Text).Tables[0];
+            }
+        }
+
+       
     }
 }
