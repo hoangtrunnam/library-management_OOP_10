@@ -90,5 +90,10 @@ namespace library_management_OOP_10
         {
 
         }
+
+        private void txtTenDangNhap_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

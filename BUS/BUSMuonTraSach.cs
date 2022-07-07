@@ -89,5 +89,15 @@ namespace BUS
             return mts.updateStatusmoney(tv);
         }
 
+        public DataSet tongTienPhat(string mssv)
+        {
+            return mts.tongTienPhat(mssv);
+        }
+
+        public bool DongPhatTaiCa(string mssv)
+        {
+            return mts.DongPhatTaiCa(mssv);
+        }
+
     }
 }

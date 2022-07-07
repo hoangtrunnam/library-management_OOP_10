@@ -29,14 +29,15 @@ namespace library_management_OOP_10
 
         private void btnTimKiemTraSach_Click(object sender, EventArgs e)
         {
-            if (txtMssvTraSach.Text != "")
-            {                
+            if (txtMssvTraSach.Text != null)
+            {         
+                
                 subFormTraSach.DataSource = busmt.getDSSachMuonSV(txtMssvTraSach.Text).Tables[0];
+                txtTongTien.Text = busmt.tongTienPhat(txtMssvTraSach.Text).Tables[0].Rows[0][0].ToString();
             }
             else
             {
-                
-
+                txtTongTien.Text = "0";
                 subFormTraSach.DataSource = busmt.getDSSachMuon().Tables[0];
             }
         }
@@ -156,13 +157,15 @@ namespace library_management_OOP_10
                 }
                 MessageBox.Show("Trả sách thành công", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 
-                if (txtMssvTraSach.Text != "")
+                if (txtMssvTraSach.Text != null)
                 {
                     subFormTraSach.DataSource = busmt.getDSSachMuonSV(txtMssvTraSach.Text).Tables[0];
+                    txtTongTien.Text = busmt.tongTienPhat(txtMssvTraSach.Text).Tables[0].Rows[0][0].ToString();
                 }
                 else
                 {
                     subFormTraSach.DataSource = busmt.getDSSachMuon().Tables[0];
+                    txtTongTien.Text = "0";
                 }
 
                 txtNgayHen.Clear();
@@ -238,16 +241,38 @@ namespace library_management_OOP_10
         {
             Int64 maMuon1 = maMuon;
             DTOMuonTraSach B = new DTOMuonTraSach((int)maMuon1, "0");
-            busmt.updateStatusmoney(B);
-            MessageBox.Show("Dóng phạt thành công", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            if (txtMssvTraSach.Text != "")
+            if (busmt.updateStatusmoney(B))
             {
-                subFormTraSach.DataSource = busmt.getDSSachMuonSV(txtMssvTraSach.Text).Tables[0];
+                busmt.updateStatusmoney(B);
+                MessageBox.Show("Dóng phạt thành công", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (txtMssvTraSach.Text != "")
+                {
+                    subFormTraSach.DataSource = busmt.getDSSachMuonSV(txtMssvTraSach.Text).Tables[0];
+                    txtTongTien.Text = busmt.tongTienPhat(txtMssvTraSach.Text).Tables[0].Rows[0][0].ToString();
+                }
+                else
+                {
+                    subFormTraSach.DataSource = busmt.getDSSachMuon().Tables[0];
+                    txtTongTien.Text = "0";
+                }
             }
+
             else
             {
-                subFormTraSach.DataSource = busmt.getDSSachMuon().Tables[0];
+                MessageBox.Show("Đóng Phạt không Thành Công", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                if (txtMssvTraSach.Text != null)
+                {
+                    subFormTraSach.DataSource = busmt.getDSSachMuonSV(txtMssvTraSach.Text).Tables[0];
+                    txtTongTien.Text = busmt.tongTienPhat(txtMssvTraSach.Text).Tables[0].Rows[0][0].ToString();
+                }
+                else
+                {
+                    subFormTraSach.DataSource = busmt.getDSSachMuon().Tables[0];
+                    txtTongTien.Text = "0";
+                }
+
             }
+           
 
             txtNgayHen.Clear();
             txtNgayMuon.Clear();
@@ -255,6 +280,137 @@ namespace library_management_OOP_10
             txtTenSach.Clear();
             txtTienPhat.Clear();
             txtNgayQuaHan.Clear();
+        }
+
+        private void btnTraTienTong_Click(object sender, EventArgs e)
+        {
+            if (busmt.DongPhatTaiCa(txtMssvTraSach.Text))
+                {
+                MessageBox.Show("Đóng Phạt Thành Công", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (txtMssvTraSach.Text != null)
+                {
+
+                    subFormTraSach.DataSource = busmt.getDSSachMuonSV(txtMssvTraSach.Text).Tables[0];
+                    txtTongTien.Text = busmt.tongTienPhat(txtMssvTraSach.Text).Tables[0].Rows[0][0].ToString();
+                }
+                else
+                {
+                    txtTongTien.Text = "0";
+                    subFormTraSach.DataSource = busmt.getDSSachMuon().Tables[0];
+                }
+                txtTongTien.Text = busmt.tongTienPhat(txtMssvTraSach.Text).Tables[0].Rows[0][0].ToString();
+            }
+            else
+            {
+                if (txtMssvTraSach.Text != null)
+                {
+
+                    subFormTraSach.DataSource = busmt.getDSSachMuonSV(txtMssvTraSach.Text).Tables[0];
+                    txtTongTien.Text = busmt.tongTienPhat(txtMssvTraSach.Text).Tables[0].Rows[0][0].ToString();
+                }
+                else
+                {
+                    txtTongTien.Text = "0";
+                    subFormTraSach.DataSource = busmt.getDSSachMuon().Tables[0];
+                }
+                MessageBox.Show("Đóng Phạt không Thành Công", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtTongTien.Text = "0";
+            }
+        }
+
+        private void txtTongTien_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void subFormTraSach_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panelTraSach_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void txtNgayTra_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtTienPhat_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtNgayQuaHan_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtNgayHen_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtMaSachTra_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtNgayMuon_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtTenSach_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

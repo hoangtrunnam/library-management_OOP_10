@@ -219,7 +219,7 @@ namespace DAL
                 _conn.Open();
 
                 // Query string
-                string SQL = string.Format("UPDATE tbl_MuonTra SET statusmoney = '" + tv.statusmoney+ "' WHERE maMuon  = " + tv.maMuon);
+                string SQL = string.Format("UPDATE tbl_MuonTra SET statusmoney = '" + tv.statusmoney+ "' WHERE maMuon  = " + tv.maMuon + "and ngaytra is not null");
 
                 // Command (mặc định command type = text nên chúng ta khỏi fải làm gì nhiều).
                 SqlCommand cmd = new SqlCommand(SQL, _conn);
@@ -241,6 +241,53 @@ namespace DAL
 
             return false;
         }
+
+        public DataSet tongTienPhat(string mssv)
+        {
+
+            SqlCommand cmd1 = new SqlCommand();
+            cmd1.Connection = _conn;
+
+            cmd1.CommandText = "select sum(cast(tienphat as int)) from tbl_MuonTra where Mssv = '" + mssv + "'AND statusmoney = '1' and ngaytra is not null";
+            SqlDataAdapter DA = new SqlDataAdapter(cmd1);
+            DataSet DS = new DataSet();
+            DA.Fill(DS);
+            return DS;
+        }
+
+
+        //btn Dong Phatj Tai Ca cua mot Sinh Vien
+        public bool DongPhatTaiCa(string mssv)
+        {
+            try
+            {
+                // Ket noi
+                _conn.Open();
+
+                // Query string
+                string SQL = string.Format("UPDATE tbl_MuonTra SET statusmoney = '0' WHERE mssv  = '" + mssv +"' and ngaytra is not null and statusmoney = '1'");
+
+                // Command (mặc định command type = text nên chúng ta khỏi fải làm gì nhiều).
+                SqlCommand cmd = new SqlCommand(SQL, _conn);
+
+                // Query và kiểm tra
+                if (cmd.ExecuteNonQuery() > 0)
+                    return true;
+
+            }
+            catch (Exception e)
+            {
+
+            }
+            finally
+            {
+                // Dong ket noi
+                _conn.Close();
+            }
+
+            return false;
+        }
+
 
     }
 }
