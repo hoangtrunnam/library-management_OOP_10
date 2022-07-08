@@ -30,8 +30,8 @@ namespace library_management_OOP_10
         private void btnTimKiemTraSach_Click(object sender, EventArgs e)
         {
             if (txtMssvTraSach.Text != null)
-            {         
-                
+            {
+
                 subFormTraSach.DataSource = busmt.getDSSachMuonSV(txtMssvTraSach.Text).Tables[0];
                 txtTongTien.Text = busmt.tongTienPhat(txtMssvTraSach.Text).Tables[0].Rows[0][0].ToString();
             }
@@ -57,21 +57,21 @@ namespace library_management_OOP_10
 
             string ngayTraSach = busmt.getDSSachMuoMM((int)maMuon).Tables[0].Rows[0][6].ToString();
 
-            string ngayHen = busmt.getDSSachMuoMM((int)maMuon).Tables[0].Rows[0][5].ToString(); 
+            string ngayHen = busmt.getDSSachMuoMM((int)maMuon).Tables[0].Rows[0][5].ToString();
             if (ngayTraSach == "")
             {
                 DateTime dt = DateTime.Now;
                 string ketqua = dt.ToString("dd/MM/yyyy");
                 txtNgayTra.Text = ketqua;
 
-               
+
                 DateTime ngayhen = DateTime.ParseExact(ngayHen, "dd/MM/yyyy", CultureInfo.InvariantCulture);
 
 
                 TimeSpan Time = dt - ngayhen;
                 int TongSoNgay = Time.Days;
 
-                if(TongSoNgay > 0)
+                if (TongSoNgay > 0)
                 {
                     int tienPhat = TongSoNgay * 1000;
                     txtNgayQuaHan.Text = TongSoNgay.ToString();
@@ -109,7 +109,7 @@ namespace library_management_OOP_10
 
             }
 
-            txtNgayHen.Text =ngayHen;
+            txtNgayHen.Text = ngayHen;
             txtNgayMuon.Text = busmt.getDSSachMuoMM((int)maMuon).Tables[0].Rows[0][4].ToString();
             txtMaSachTra.Text = busmt.getDSSachMuoMM((int)maMuon).Tables[0].Rows[0][2].ToString();
             maSach = Int64.Parse(txtMaSachTra.Text);
@@ -129,10 +129,10 @@ namespace library_management_OOP_10
         string maTT;
         private void btnTraSach_Click(object sender, EventArgs e)
         {
-            
-           
 
-            if (txtNgayTra.Text != "" && maTT != "" )
+
+
+            if (txtNgayTra.Text != "" && maTT != "")
 
             {
                 string maTT = GlobalVar.globalMaTT;
@@ -149,14 +149,14 @@ namespace library_management_OOP_10
 
                 DTOMuonTraSach A = new DTOMuonTraSach((int)maMuon1, ngayTra, ngayQuaHan, tienPhat);
                 busmt.traSach(A);
-                if(txtNgayQuaHan.Text == "0")
+                if (txtNgayQuaHan.Text == "0")
                 {
                     DTOMuonTraSach B = new DTOMuonTraSach((int)maMuon1, "0");
                     busmt.updateStatusmoney(B);
-                    
+
                 }
                 MessageBox.Show("Trả sách thành công", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                
+
                 if (txtMssvTraSach.Text != null)
                 {
                     subFormTraSach.DataSource = busmt.getDSSachMuonSV(txtMssvTraSach.Text).Tables[0];
@@ -272,7 +272,7 @@ namespace library_management_OOP_10
                 }
 
             }
-           
+
 
             txtNgayHen.Clear();
             txtNgayMuon.Clear();
@@ -285,7 +285,7 @@ namespace library_management_OOP_10
         private void btnTraTienTong_Click(object sender, EventArgs e)
         {
             if (busmt.DongPhatTaiCa(txtMssvTraSach.Text))
-                {
+            {
                 MessageBox.Show("Đóng Phạt Thành Công", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 if (txtMssvTraSach.Text != null)
                 {
@@ -411,6 +411,44 @@ namespace library_management_OOP_10
         private void label2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnMatSach_Click(object sender, EventArgs e)
+        {
+            Int64 maMuon1 = maMuon;
+            Int64 masach = Int64.Parse(txtMaSachTra.Text);
+            DTOMuonTraSach B = new DTOMuonTraSach("1",txtNgayTra.Text, (int)maMuon1);
+            if (busmt.matSach(B) || busmt.updateSLSach((int)masach))
+            {
+                busmt.matSach(B);
+                busmt.updateSLSach((int)masach);
+                MessageBox.Show("Báo mất thành công", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (txtMssvTraSach.Text != "")
+                {
+                    subFormTraSach.DataSource = busmt.getDSSachMuonSV(txtMssvTraSach.Text).Tables[0];
+                    txtTongTien.Text = busmt.tongTienPhat(txtMssvTraSach.Text).Tables[0].Rows[0][0].ToString();
+                }
+                else
+                {
+                    subFormTraSach.DataSource = busmt.getDSSachMuon().Tables[0];
+                    txtTongTien.Text = "0";
+                }
+            }
+
+            else
+            {
+                MessageBox.Show("Báo mất không Thành Công", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                if (txtMssvTraSach.Text != null)
+                {
+                    subFormTraSach.DataSource = busmt.getDSSachMuonSV(txtMssvTraSach.Text).Tables[0];
+                    txtTongTien.Text = busmt.tongTienPhat(txtMssvTraSach.Text).Tables[0].Rows[0][0].ToString();
+                }
+                else
+                {
+                    subFormTraSach.DataSource = busmt.getDSSachMuon().Tables[0];
+                    txtTongTien.Text = "0";
+                }
+            }
         }
     }
 }

@@ -18,6 +18,7 @@ namespace DTO
         private string _songayquahan;
         private string _tienphat;
         private string _statusmoney;
+        private string _statusbook;
 
         DTOMuonTraSach()
         {
@@ -153,6 +154,19 @@ namespace DTO
             }
         }
 
+        public string statusBook
+        {
+            set
+            {
+                _statusbook = value;
+            }
+            get
+            {
+                return _statusbook;
+
+            }
+        }
+
 
         public DTOMuonTraSach( int _mamuon,
         string _mssv,
@@ -233,6 +247,14 @@ namespace DTO
             this._mamuon = _mamuon;
            
             this.statusmoney = _statusmoney;
+        }
+
+
+        public DTOMuonTraSach(string _statusbook, string _ngaytra, int _mamuon)
+        {
+            this._mamuon = _mamuon;
+            this._ngaytra = _ngaytra;
+            this._statusbook= _statusbook;
         }
 
 

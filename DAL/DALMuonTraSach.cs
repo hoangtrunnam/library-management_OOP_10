@@ -265,7 +265,7 @@ namespace DAL
                 _conn.Open();
 
                 // Query string
-                string SQL = string.Format("UPDATE tbl_MuonTra SET statusmoney = '0' WHERE mssv  = '" + mssv +"' and ngaytra is not null and statusmoney = '1'");
+                string SQL = string.Format("UPDATE tbl_MuonTra SET statusmoney = '0' WHERE mssv  = '" + mssv + "' and ngaytra is not null and statusmoney = '1'");
 
                 // Command (mặc định command type = text nên chúng ta khỏi fải làm gì nhiều).
                 SqlCommand cmd = new SqlCommand(SQL, _conn);
@@ -289,5 +289,71 @@ namespace DAL
         }
 
 
+        //Mat Sach
+
+        public bool matSach(DTOMuonTraSach tv)
+        {
+            try
+            {
+                // Ket noi
+                _conn.Open();
+
+                // Query string
+                string SQL = string.Format("UPDATE tbl_MuonTra SET statusBook = '" + tv.statusBook + "',ngaytra = '" + tv.ngaytra + "' WHERE maMuon  = " + tv.maMuon);
+
+                // Command (mặc định command type = text nên chúng ta khỏi fải làm gì nhiều).
+                SqlCommand cmd = new SqlCommand(SQL, _conn);
+
+                // Query và kiểm tra
+                if (cmd.ExecuteNonQuery() > 0)
+                    return true;
+
+            }
+            catch (Exception e)
+            {
+
+            }
+            finally
+            {
+                // Dong ket noi
+                _conn.Close();
+            }
+
+            return false;
+        }
+
+        public bool updateSLSach(int masach)
+        {
+            try
+            {
+                // Ket noi
+                _conn.Open();
+
+                // Query string
+                string SQL = string.Format("UPDATE tbl_Sach  SET soLuong  = (soluong - 1) WHERE maSach  = " + masach);
+
+                // Command (mặc định command type = text nên chúng ta khỏi fải làm gì nhiều).
+                SqlCommand cmd = new SqlCommand(SQL, _conn);
+
+                // Query và kiểm tra
+                if (cmd.ExecuteNonQuery() > 0)
+                    return true;
+
+            }
+            catch (Exception e)
+            {
+
+            }
+            finally
+            {
+                // Dong ket noi
+                _conn.Close();
+            }
+
+            return false;
+        }
+
     }
+
+
 }

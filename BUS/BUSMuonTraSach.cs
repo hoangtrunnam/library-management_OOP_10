@@ -99,5 +99,15 @@ namespace BUS
             return mts.DongPhatTaiCa(mssv);
         }
 
+        public bool updateSLSach(int masach)
+        {
+            return mts.updateSLSach(masach);
+        }
+
+        public bool matSach(DTOMuonTraSach tv)
+        {
+            return mts.matSach(tv);
+        }
+
     }
 }

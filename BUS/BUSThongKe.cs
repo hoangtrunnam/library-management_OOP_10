@@ -26,7 +26,10 @@ namespace BUS
         {
             return tk.DaMuon();
         }
-
+        public DataSet MatSach()
+        {
+            return tk.MatSach();
+        }
         public DataSet DangMuon()
         {
             return tk.DangMuon();
@@ -40,6 +43,20 @@ namespace BUS
         public DataSet DangMuonTheoThangSV(string tungay, string denngay, string mssv)
         {
             return tk.DangMuonTheoThangSV(tungay, denngay, mssv);
+        }
+        public DataSet NoPhatTheoThangSV(string tungay, string denngay, string mssv)
+        {
+            return tk.NoPhatTheoThangSV(tungay, denngay, mssv);
+        }
+
+        public DataSet MatSachTheoThang(string tungay, string denngay)
+        {
+            return tk.MatSachTheoThang(tungay, denngay);
+        }
+
+        public DataSet MatSachtheoThangSV(string tungay, string denngay, string mssv)
+        {
+            return tk.MatSachtheoThangSV(tungay, denngay, mssv);
         }
     }
 }

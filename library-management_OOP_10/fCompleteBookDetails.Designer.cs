@@ -37,8 +37,11 @@
             this.txtDenNgay = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.btnThongKeTheoThang = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.subformMatSach = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.subformMatSach)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -132,12 +135,34 @@
             this.btnThongKeTheoThang.UseVisualStyleBackColor = true;
             this.btnThongKeTheoThang.Click += new System.EventHandler(this.btnThongKeTheoThang_Click);
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.label5.Location = new System.Drawing.Point(428, 534);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(96, 24);
+            this.label5.TabIndex = 9;
+            this.label5.Text = "Mất Sách";
+            // 
+            // subformMatSach
+            // 
+            this.subformMatSach.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.subformMatSach.Location = new System.Drawing.Point(12, 561);
+            this.subformMatSach.Name = "subformMatSach";
+            this.subformMatSach.Size = new System.Drawing.Size(1036, 181);
+            this.subformMatSach.TabIndex = 10;
+            // 
             // fCompleteBookDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.ClientSize = new System.Drawing.Size(1060, 551);
+            this.ClientSize = new System.Drawing.Size(1060, 499);
+            this.Controls.Add(this.subformMatSach);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.btnThongKeTheoThang);
             this.Controls.Add(this.txtDenNgay);
             this.Controls.Add(this.label4);
@@ -153,6 +178,7 @@
             this.Load += new System.EventHandler(this.fCompleteBookDetails_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.subformMatSach)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -169,5 +195,7 @@
         private System.Windows.Forms.TextBox txtDenNgay;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnThongKeTheoThang;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.DataGridView subformMatSach;
     }
 }

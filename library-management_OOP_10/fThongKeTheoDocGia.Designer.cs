@@ -47,11 +47,14 @@ namespace library_management_OOP_10
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.subfromMatSach = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.subFormDangMuon)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.subFormDaMuon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.subFormmNoPhat)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.subfromMatSach)).BeginInit();
             this.SuspendLayout();
             // 
             // btnLamMoiThoat
@@ -94,7 +97,6 @@ namespace library_management_OOP_10
             this.txtMSSVThongKe.Name = "txtMSSVThongKe";
             this.txtMSSVThongKe.Size = new System.Drawing.Size(191, 22);
             this.txtMSSVThongKe.TabIndex = 2;
-            this.txtMSSVThongKe.Text = "dd/mm/yyyy";
             // 
             // label1
             // 
@@ -198,7 +200,7 @@ namespace library_management_OOP_10
             this.subFormmNoPhat.Location = new System.Drawing.Point(300, 432);
             this.subFormmNoPhat.Name = "subFormmNoPhat";
             this.subFormmNoPhat.RowHeadersWidth = 51;
-            this.subFormmNoPhat.Size = new System.Drawing.Size(937, 172);
+            this.subFormmNoPhat.Size = new System.Drawing.Size(937, 149);
             this.subFormmNoPhat.TabIndex = 6;
             // 
             // label2
@@ -231,12 +233,34 @@ namespace library_management_OOP_10
             this.label4.TabIndex = 9;
             this.label4.Text = "Nợ Phạt";
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(603, 586);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(79, 18);
+            this.label7.TabIndex = 10;
+            this.label7.Text = "Mất Sách";
+            // 
+            // subfromMatSach
+            // 
+            this.subfromMatSach.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.subfromMatSach.Location = new System.Drawing.Point(300, 610);
+            this.subfromMatSach.Name = "subfromMatSach";
+            this.subfromMatSach.RowHeadersWidth = 51;
+            this.subfromMatSach.Size = new System.Drawing.Size(937, 137);
+            this.subfromMatSach.TabIndex = 11;
+            // 
             // fThongKeTheoDocGia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.ClientSize = new System.Drawing.Size(1239, 609);
+            this.ClientSize = new System.Drawing.Size(1239, 665);
+            this.Controls.Add(this.subfromMatSach);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -252,6 +276,7 @@ namespace library_management_OOP_10
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.subFormDaMuon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.subFormmNoPhat)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.subfromMatSach)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -276,5 +301,7 @@ namespace library_management_OOP_10
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtTuNgay;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.DataGridView subfromMatSach;
     }
 }

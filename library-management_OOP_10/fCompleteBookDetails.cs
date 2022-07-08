@@ -28,6 +28,8 @@ namespace library_management_OOP_10
 
             //Dang Muon
             dataGridView1.DataSource = bustk.DaMuon().Tables[0];
+
+            subformMatSach.DataSource = bustk.MatSach().Tables[0];
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -81,6 +83,9 @@ namespace library_management_OOP_10
 
             //Dang Muon
             dataGridView1.DataSource = bustk.DaMuonTheoThang(txtTuNgay.Text, txtDenNgay.Text).Tables[0];
+
+                //mat
+                subformMatSach.DataSource = bustk.MatSachTheoThang(txtTuNgay.Text, txtDenNgay.Text).Tables[0];
             }
         }
 
