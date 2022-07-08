@@ -32,6 +32,12 @@ namespace library_management_OOP_10
                 if (busDocGia.themDocGia(tv))
                 {
                     MessageBox.Show("Thêm thành công");
+                    textGioiTinh.Clear();
+                    textSDT.Clear();
+                    textKhoa.Clear();
+                    textLop.Clear();
+                    textMSSV.Clear();
+                    textTenDocGia.Clear();
                     //dgvTV.DataSource = busTV.getThanhVien(); // refresh datagridview
                 }
                 else

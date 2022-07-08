@@ -59,6 +59,7 @@ namespace library_management_OOP_10
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.btnMatSach = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.subFormTraSach)).BeginInit();
@@ -192,6 +193,7 @@ namespace library_management_OOP_10
             // panelTraSach
             // 
             this.panelTraSach.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.panelTraSach.Controls.Add(this.btnMatSach);
             this.panelTraSach.Controls.Add(this.btnDongPhat);
             this.panelTraSach.Controls.Add(this.txtNgayTra);
             this.panelTraSach.Controls.Add(this.txtTienPhat);
@@ -388,6 +390,17 @@ namespace library_management_OOP_10
             this.label2.Text = "Tên Sách";
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
+            // btnMatSach
+            // 
+            this.btnMatSach.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMatSach.Location = new System.Drawing.Point(278, 176);
+            this.btnMatSach.Name = "btnMatSach";
+            this.btnMatSach.Size = new System.Drawing.Size(90, 23);
+            this.btnMatSach.TabIndex = 19;
+            this.btnMatSach.Text = "Mất Sách ";
+            this.btnMatSach.UseVisualStyleBackColor = true;
+            this.btnMatSach.Click += new System.EventHandler(this.btnMatSach_Click);
+            // 
             // fTraSach
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -442,5 +455,6 @@ namespace library_management_OOP_10
         private System.Windows.Forms.Button btnTraTienTong;
         private System.Windows.Forms.TextBox txtTongTien;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Button btnMatSach;
     }
 }

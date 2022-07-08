@@ -72,6 +72,17 @@ namespace DAL
             da.Fill(ds);
             return ds;
         }
+        public DataSet MatSach()
+        {
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = _conn;
+
+            cmd.CommandText = "select*from tbl_MuonTra where statusBook = '1' ";
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+            return ds;
+        }
 
         public DataSet DangMuonTheoThangSV(string tungay, string denngay,string mssv)
 
@@ -104,6 +115,31 @@ namespace DAL
             cmd.Connection = _conn;
 
             cmd.CommandText = "select*from tbl_MuonTra where statusmoney = '1' and ngaytra is not null and mssv = '" + mssv + "' and (convert(date , ngaytra,103) between (select CONVERT(date,  '" + tungay + "',103) ) and (select CONVERT(date,  '" + denngay + "',103)))";
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+            return ds;
+        }
+
+
+        public DataSet MatSachTheoThang(string tungay, string denngay)
+        {
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = _conn;
+
+            cmd.CommandText = "select*from tbl_MuonTra where statusBook = '1'  and (convert(date , ngaytra,103) between (select CONVERT(date,  '" + tungay + "',103) ) and (select CONVERT(date,  '" + denngay + "',103)))";
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+            return ds;
+        }
+
+        public DataSet MatSachtheoThangSV(string tungay, string denngay, string mssv)
+        {
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = _conn;
+
+            cmd.CommandText = "select*from tbl_MuonTra where statusBook = '1' and mssv = '" + mssv + "' and (convert(date , ngaytra,103) between (select CONVERT(date,  '" + tungay + "',103) ) and (select CONVERT(date,  '" + denngay + "',103)))";
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataSet ds = new DataSet();
             da.Fill(ds);

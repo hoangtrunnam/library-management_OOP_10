@@ -27,6 +27,8 @@ namespace library_management_OOP_10
 
                 subFormDangMuon.DataSource = TK.DangMuonTheoThangSV(txtTuNgay.Text, txtDenNgay.Text, txtMSSVThongKe.Text).Tables[0];
                 subFormDaMuon.DataSource = TK.DaMuonTheoThangSV(txtTuNgay.Text, txtDenNgay.Text, txtMSSVThongKe.Text).Tables[0];
+                subfromMatSach.DataSource = TK.MatSachtheoThangSV(txtTuNgay.Text, txtDenNgay.Text, txtMSSVThongKe.Text).Tables[0];
+                subFormmNoPhat.DataSource = TK.NoPhatTheoThangSV(txtTuNgay.Text, txtDenNgay.Text, txtMSSVThongKe.Text).Tables[0];
             }
 
         }
