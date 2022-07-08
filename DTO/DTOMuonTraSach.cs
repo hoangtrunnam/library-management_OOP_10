@@ -250,11 +250,12 @@ namespace DTO
         }
 
 
-        public DTOMuonTraSach(string _statusbook, string _ngaytra, int _mamuon)
+        public DTOMuonTraSach(string _statusmoney,string _statusbook, string _ngaytra, int _mamuon)
         {
             this._mamuon = _mamuon;
             this._ngaytra = _ngaytra;
             this._statusbook= _statusbook;
+            this.statusmoney = _statusmoney;
         }
 
 

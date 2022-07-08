@@ -299,7 +299,7 @@ namespace DAL
                 _conn.Open();
 
                 // Query string
-                string SQL = string.Format("UPDATE tbl_MuonTra SET statusBook = '" + tv.statusBook + "',ngaytra = '" + tv.ngaytra + "' WHERE maMuon  = " + tv.maMuon);
+                string SQL = string.Format("UPDATE tbl_MuonTra SET statusmoney = '"+tv.statusmoney+"' ,statusBook = '" + tv.statusBook + "',ngaytra = '" + tv.ngaytra + "' WHERE ngaytra is null and maMuon  = " + tv.maMuon);
 
                 // Command (mặc định command type = text nên chúng ta khỏi fải làm gì nhiều).
                 SqlCommand cmd = new SqlCommand(SQL, _conn);
