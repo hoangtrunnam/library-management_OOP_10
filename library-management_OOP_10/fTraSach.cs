@@ -417,8 +417,8 @@ namespace library_management_OOP_10
         {
             Int64 maMuon1 = maMuon;
             Int64 masach = Int64.Parse(txtMaSachTra.Text);
-            DTOMuonTraSach B = new DTOMuonTraSach("1",txtNgayTra.Text, (int)maMuon1);
-            if (busmt.matSach(B) || busmt.updateSLSach((int)masach))
+            DTOMuonTraSach B = new DTOMuonTraSach("0","1",txtNgayTra.Text, (int)maMuon1);
+            if (busmt.matSach(B) && busmt.updateSLSach((int)masach))
             {
                 busmt.matSach(B);
                 busmt.updateSLSach((int)masach);

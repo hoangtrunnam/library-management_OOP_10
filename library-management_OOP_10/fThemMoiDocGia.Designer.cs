@@ -62,7 +62,7 @@ namespace library_management_OOP_10
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.pictureBox2);
             this.panel1.Location = new System.Drawing.Point(-7, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(917, 95);
             this.panel1.TabIndex = 0;
@@ -83,7 +83,7 @@ namespace library_management_OOP_10
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
             this.pictureBox2.Location = new System.Drawing.Point(323, 0);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(133, 95);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -94,7 +94,7 @@ namespace library_management_OOP_10
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(-7, 92);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(336, 436);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -120,7 +120,7 @@ namespace library_management_OOP_10
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Location = new System.Drawing.Point(316, 92);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(595, 436);
             this.panel2.TabIndex = 2;
@@ -129,10 +129,10 @@ namespace library_management_OOP_10
             // textGioiTinh
             // 
             this.textGioiTinh.Location = new System.Drawing.Point(275, 292);
-            this.textGioiTinh.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textGioiTinh.Margin = new System.Windows.Forms.Padding(4);
             this.textGioiTinh.Name = "textGioiTinh";
             this.textGioiTinh.Size = new System.Drawing.Size(264, 22);
-            this.textGioiTinh.TabIndex = 14;
+            this.textGioiTinh.TabIndex = 10;
             // 
             // labelGioiTinh
             // 
@@ -150,10 +150,10 @@ namespace library_management_OOP_10
             this.btnThoat.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnThoat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnThoat.Location = new System.Drawing.Point(407, 351);
-            this.btnThoat.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnThoat.Margin = new System.Windows.Forms.Padding(4);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(100, 28);
-            this.btnThoat.TabIndex = 12;
+            this.btnThoat.TabIndex = 13;
             this.btnThoat.Text = "Thoát";
             this.btnThoat.UseVisualStyleBackColor = true;
             this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
@@ -163,10 +163,10 @@ namespace library_management_OOP_10
             this.btnLuu.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnLuu.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLuu.Location = new System.Drawing.Point(243, 351);
-            this.btnLuu.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnLuu.Margin = new System.Windows.Forms.Padding(4);
             this.btnLuu.Name = "btnLuu";
             this.btnLuu.Size = new System.Drawing.Size(100, 28);
-            this.btnLuu.TabIndex = 11;
+            this.btnLuu.TabIndex = 12;
             this.btnLuu.Text = "Lưu";
             this.btnLuu.UseVisualStyleBackColor = true;
             this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
@@ -176,10 +176,10 @@ namespace library_management_OOP_10
             this.btnLamMoi.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnLamMoi.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLamMoi.Location = new System.Drawing.Point(88, 351);
-            this.btnLamMoi.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnLamMoi.Margin = new System.Windows.Forms.Padding(4);
             this.btnLamMoi.Name = "btnLamMoi";
             this.btnLamMoi.Size = new System.Drawing.Size(100, 28);
-            this.btnLamMoi.TabIndex = 10;
+            this.btnLamMoi.TabIndex = 11;
             this.btnLamMoi.Text = "Làm Mới ";
             this.btnLamMoi.UseVisualStyleBackColor = true;
             this.btnLamMoi.Click += new System.EventHandler(this.btnLamMoi_Click);
@@ -187,7 +187,7 @@ namespace library_management_OOP_10
             // textSDT
             // 
             this.textSDT.Location = new System.Drawing.Point(275, 250);
-            this.textSDT.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textSDT.Margin = new System.Windows.Forms.Padding(4);
             this.textSDT.Name = "textSDT";
             this.textSDT.Size = new System.Drawing.Size(264, 22);
             this.textSDT.TabIndex = 9;
@@ -195,7 +195,7 @@ namespace library_management_OOP_10
             // textKhoa
             // 
             this.textKhoa.Location = new System.Drawing.Point(275, 203);
-            this.textKhoa.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textKhoa.Margin = new System.Windows.Forms.Padding(4);
             this.textKhoa.Name = "textKhoa";
             this.textKhoa.Size = new System.Drawing.Size(264, 22);
             this.textKhoa.TabIndex = 8;
@@ -203,7 +203,7 @@ namespace library_management_OOP_10
             // textLop
             // 
             this.textLop.Location = new System.Drawing.Point(275, 151);
-            this.textLop.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textLop.Margin = new System.Windows.Forms.Padding(4);
             this.textLop.Name = "textLop";
             this.textLop.Size = new System.Drawing.Size(264, 22);
             this.textLop.TabIndex = 7;
@@ -211,7 +211,7 @@ namespace library_management_OOP_10
             // textMSSV
             // 
             this.textMSSV.Location = new System.Drawing.Point(275, 106);
-            this.textMSSV.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textMSSV.Margin = new System.Windows.Forms.Padding(4);
             this.textMSSV.Name = "textMSSV";
             this.textMSSV.Size = new System.Drawing.Size(264, 22);
             this.textMSSV.TabIndex = 6;
@@ -219,7 +219,7 @@ namespace library_management_OOP_10
             // textTenDocGia
             // 
             this.textTenDocGia.Location = new System.Drawing.Point(275, 54);
-            this.textTenDocGia.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textTenDocGia.Margin = new System.Windows.Forms.Padding(4);
             this.textTenDocGia.Name = "textTenDocGia";
             this.textTenDocGia.Size = new System.Drawing.Size(264, 22);
             this.textTenDocGia.TabIndex = 5;
@@ -288,7 +288,7 @@ namespace library_management_OOP_10
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "fThemMoiDocGia";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "fThemMoiDocGia";
