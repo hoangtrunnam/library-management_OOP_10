@@ -265,5 +265,26 @@ namespace library_management_OOP_10
         {
 
         }
+
+        private void btnExportExcel_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Title = "Export Excel";
+            saveFileDialog.Filter = "Excel (*.xlsx)|*.xlsx|Excel 2003 (*.xls)|*.xls";
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    GlobalVar.exportExcel(saveFileDialog.FileName, subFormDSDocGia);
+                    MessageBox.Show("xuất file thành công");
+                }
+
+                catch (Exception ex)
+                {
+                    MessageBox.Show("xuất file thành công\n" + ex.Message);
+
+                }
+            }
+        }
     }
 }

@@ -93,17 +93,65 @@ namespace library_management_OOP_10
 
         private void btnExportDangMuon_Click(object sender, EventArgs e)
         {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Title = "Export Excel";
+            saveFileDialog.Filter = "Excel (*.xlsx)|*.xlsx|Excel 2003 (*.xls)|*.xls";
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    GlobalVar.exportExcel(saveFileDialog.FileName, dataGridView2);
+                    MessageBox.Show("xuất file thành công");
+                }
 
+                catch (Exception ex)
+                {
+                    MessageBox.Show("xuất file thành công\n" + ex.Message);
+
+                }
+            }
         }
 
         private void btnExportMatSach_Click(object sender, EventArgs e)
         {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Title = "Export Excel";
+            saveFileDialog.Filter = "Excel (*.xlsx)|*.xlsx|Excel 2003 (*.xls)|*.xls";
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    GlobalVar.exportExcel(saveFileDialog.FileName, subformMatSach);
+                    MessageBox.Show("xuất file thành công");
+                }
 
+                catch (Exception ex)
+                {
+                    MessageBox.Show("xuất file thành công\n" + ex.Message);
+
+                }
+            }
         }
 
         private void btnExportDaMuon_Click(object sender, EventArgs e)
         {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Title = "Export Excel";
+            saveFileDialog.Filter = "Excel (*.xlsx)|*.xlsx|Excel 2003 (*.xls)|*.xls";
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    GlobalVar.exportExcel(saveFileDialog.FileName, dataGridView1);
+                    MessageBox.Show("xuất file thành công");
+                }
 
+                catch (Exception ex)
+                {
+                    MessageBox.Show("xuất file thành công\n" + ex.Message);
+
+                }
+            }
         }
     }
 }
