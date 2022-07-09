@@ -4,22 +4,39 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.IO;
+using OfficeOpenXml;
+using Excel = Microsoft.Office.Interop.Excel;
 
 namespace library_management_OOP_10
 {
 
     static class GlobalVar
     {
-        // định nghĩa các tên các bảng và tên domain,database ở đây.
-        // muốn dùng được thì phải đổi đường dẫn _globalDomain
-        // tên database bắt buộc phải là lib_Management
-        // các phương thức chỉ được phép get, cấm sử dụng set
-
-        private static string _globalDomain = "PC-PC\\SQLEXPRESS";
+        private static string _globalDomain = "DESKTOP-62VA20P\\HOANGNAM";
         private static string _globalDataBase = "lib_Management2";
         private static string _maTT = "";
 
+        public static void exportExcel(string path, DataGridView data)
+        {
+            Excel.Application application = new Excel.Application();
+            application.Application.Workbooks.Add(Type.Missing);
+            for (int i = 0; i < data.Columns.Count; i++)
+            {
+                application.Cells[1, i + 1] = data.Columns[i].HeaderText;
+            }
+            for (int i = 0; i < data.Rows.Count; i++)
+            {
+                for (int j = 0; j < data.Columns.Count; j++)
+                {
+                    application.Cells[i + 2, j + 1] = data.Rows[i].Cells[j].Value;
+                }
+            }
 
+            application.Columns.AutoFit();
+            application.ActiveWorkbook.SaveCopyAs(path);
+            application.ActiveWorkbook.Saved = true;
+        }
 
         public static string GlobalDomain
         {
