@@ -19,7 +19,7 @@ namespace library_management_OOP_10
 
         private void btnThoat_Click(object sender, EventArgs e)
         {
-            
+
             if (MessageBox.Show("Bạn có chắc sẽ thoát?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
                 fLogin f = new fLogin();
@@ -30,44 +30,87 @@ namespace library_management_OOP_10
 
         private void btnAddNewBook_Click(object sender, EventArgs e)
         {
-            fAddNewBook f = new fAddNewBook();
-            f.Show();
+            if (!CheckExistForm("fAddNewBook"))
+            {
+                fAddNewBook f = new fAddNewBook();
+                f.MdiParent = this;
+                f.Show();
+                
+            }
+            else 
+                ActiveChildForm("fAddNewBook");
         }
 
         private void btnXemDanhSach_Click(object sender, EventArgs e)
         {
-            fXemDsSach f = new fXemDsSach();
-            f.Show();
+            if (!CheckExistForm("fXemDsSach"))
+            {
+                fXemDsSach f = new fXemDsSach();
+                f.MdiParent = this;
+                f.Show();
+            }
+            else
+                ActiveChildForm("fXemDsSach");
         }
 
         private void btnThemMoiDocGia_Click(object sender, EventArgs e)
         {
-            fThemMoiDocGia tmdg = new fThemMoiDocGia();
-            tmdg.Show();
+            if (!CheckExistForm("fThemMoiDocGia"))
+            {
+                fThemMoiDocGia tmdg = new fThemMoiDocGia();
+                tmdg.MdiParent = this;
+                tmdg.Show();
+            }
+            else
+                ActiveChildForm("fThemMoiDocGia");
         }
 
         private void btnXemDanhSachDocGia_Click(object sender, EventArgs e)
         {
-            fHienDocGia hdg = new fHienDocGia();
-            hdg.Show();
+            if (!CheckExistForm("fHienDocGia"))
+            {
+                fHienDocGia hdg = new fHienDocGia();
+                hdg.MdiParent = this;
+                hdg.Show();
+            }
+            else
+                ActiveChildForm("fHienDocGia");
         }
 
         private void btnMuonSach_Click(object sender, EventArgs e)
         {
-            fMuonSach ms = new fMuonSach();
-            ms.Show();
+            if (!CheckExistForm("fMuonSach"))
+            {
+                fMuonSach ms = new fMuonSach();
+                ms.MdiParent = this;
+                ms.Show();
+            }
+            else
+                ActiveChildForm("fMuonSach");
         }
 
         private void btnTraSach_Click(object sender, EventArgs e)
         {
-            fTraSach ts = new fTraSach();
-            ts.Show();
+            if (!CheckExistForm("fTraSach"))
+            {
+                fTraSach ts = new fTraSach();
+                ts.MdiParent = this;
+                ts.Show();
+            }
+            else
+                ActiveChildForm("fTraSach");
         }
 
         private void btnChiTietMuonTra_Click(object sender, EventArgs e)
         {
-            fCompleteBookDetails ct = new fCompleteBookDetails();
-            ct.Show();
+            if (!CheckExistForm("fCompleteBookDetails"))
+            {
+                fCompleteBookDetails ct = new fCompleteBookDetails();
+                ct.MdiParent = this;
+                ct.Show();
+            }
+            else
+                ActiveChildForm("fCompleteBookDetails");
         }
 
         private void fMain_Load(object sender, EventArgs e)
@@ -77,8 +120,45 @@ namespace library_management_OOP_10
 
         private void btnThongKeTheoDocGia_Click(object sender, EventArgs e)
         {
-            fThongKeTheoDocGia tDG = new fThongKeTheoDocGia();
-            tDG.Show();
+            if (!CheckExistForm("fThongKeTheoDocGia"))
+            {
+                fThongKeTheoDocGia tDG = new fThongKeTheoDocGia();
+                tDG.MdiParent = this;
+                tDG.Show();
+            }
+            else
+                ActiveChildForm("fThongKeTheoDocGia");
+        }
+
+        private void quanrToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private bool CheckExistForm(string name)
+        {
+            bool check = false;
+            foreach (Form frm in this.MdiChildren)
+            {
+                if (frm.Name == name)
+                {
+                    check = true;
+                    break;
+                }    
+            }    
+            return check;
+        }
+
+        private void ActiveChildForm(string name)
+        {
+            foreach (Form frm in this.MdiChildren)
+            {
+                if (frm.Name == name)
+                {
+                    frm.Activate();
+                    break;
+                }    
+            }    
         }
     }
 }
